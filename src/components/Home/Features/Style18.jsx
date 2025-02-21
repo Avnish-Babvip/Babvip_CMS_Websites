@@ -1,14 +1,15 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
-const Style18 = () => {
+const Style18 = ({data}) => {
   return (
     <section class="crm-about-section ptb-120">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-xl-5 col-lg-6">
                 <div class="crm-title text-center">
-                    <span class="crm-subtitle">Why Choose Us <img src="assets/img/shape/arrow-red.png" alt="arrow"/></span>
-                    <h2 class="mt-1 clr-text">Why Us Quiety CRM</h2>
+                    <span class="crm-subtitle">{data?.sub_title} <img src="assets/img/shape/arrow-red.png" alt="arrow"/></span>
+                    <h2 class="mt-1 clr-text">{data?.title}</h2>
                 </div>
             </div>
         </div>
@@ -17,15 +18,13 @@ const Style18 = () => {
                 <div class="col-xl-6">
                     <div class="crm-about-content-box crm-bg-light rounded overflow-hidden">
                         <div class="crm-content-top">
-                            <h4>Lead &amp; Contact Management</h4>
-                            <p class="mb-4">Bring in quality leads, nurture them, and turn them into happy, paying
-                                customers. Get a complete view of all customer data—personal details, all communication
-                                you've had with them, and more—all in a single place.</p>
-                            <a href="#" class="read-more-link">Explore More <i class="fa-solid fa-arrow-right-long ms-1"></i></a>
+                            <h4>{data?.title1}</h4>
+                            <p class="mb-4">{data?.description1}</p>
+                            <Link to={data?.link_url1} class="read-more-link">{data?.link_text1} <i class="fa-solid fa-arrow-right-long ms-1"></i></Link>
                         </div>
                         <div class="text-center mt-4 position-relative z-1">
                             <span class="circle-shape position-absolute rounded-circle z--1"></span>
-                            <img src="assets/img/crm/vector-1.png" alt="vector" class="img-fluid"/>
+                            <img src={`${import.meta.env.VITE_REACT_APP_IMAGE_PATH}/${data?.image1}`} alt={data?.image1_alt_tag} class="img-fluid"/>
                         </div>
                     </div>
                 </div>
@@ -34,23 +33,21 @@ const Style18 = () => {
                         <div class="col-xl-12">
                             <div class="crm-about-content-box crm-bg-yellow-light rounded position-relative z-1 overflow-hidden">
                                 <div class="crm-content-wrapper">
-                                    <h4>Artificial Intelligence</h4>
-                                    <p class="mb-4">Bring in quality leads, nurture them, and turn them complete view of
-                                        all customer data in a single place into happy Get .</p>
-                                    <a href="#" class="read-more-link">Explore More <i class="fa-solid fa-arrow-right-long ms-1"></i></a>
+                                    <h4>{data?.title2}</h4>
+                                    <p class="mb-4">{data?.description2}</p>
+                                    <Link to={data?.link_url2} class="read-more-link">{data?.link_text2} <i class="fa-solid fa-arrow-right-long ms-1"></i></Link>
                                 </div>
-                                <img src="assets/img/crm/vector-2.png" alt="vector" class="crm-vector-img"/>
+                                <img src={`${import.meta.env.VITE_REACT_APP_IMAGE_PATH}/${data?.image2}`} alt={data?.image2_alt_tag} class="crm-vector-img"/>
                             </div>
                         </div>
                         <div class="col-xl-12">
                             <div class="crm-about-content-box crm-bg-light-green rounded position-relative z-1 overflow-hidden">
                                 <div class="crm-content-wrapper">
-                                    <h4>Collaborate With Our Team</h4>
-                                    <p class="mb-4">Bring in quality leads, nurture them, and turn them into happy,
-                                        paying customers. Get a complete view of single place.</p>
-                                    <a href="#" class="read-more-link">Explore More <i class="fa-solid fa-arrow-right-long ms-1"></i></a>
+                                    <h4>{data?.title3}</h4>
+                                    <p class="mb-4">{data?.description3}</p>
+                                    <Link to={data?.link_url3} class="read-more-link">{data?.link_text3} <i class="fa-solid fa-arrow-right-long ms-1"></i></Link>
                                 </div>
-                                <img src="assets/img/crm/vector-3.png" alt="vector" class="crm-vector-img"/>
+                                <img src={`${import.meta.env.VITE_REACT_APP_IMAGE_PATH}/${data?.image3}`} alt={data?.image3_alt_tag} class="crm-vector-img"/>
                             </div>
                         </div>
                     </div>

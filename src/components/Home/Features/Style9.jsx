@@ -1,26 +1,22 @@
 import React from 'react'
 
-const Style9 = () => {
+const Style9 = ({data}) => {
   return (
 <section class="feature-section pt-60 pb-120">
             <div class="container">
                 <div class="row align-items-lg-center justify-content-between">
                     <div class="col-lg-5 order-lg-2 mb-7 mb-lg-0">
                         <div class="mb-4 aos-init aos-animate" data-aos="fade-up">
-                            <h2>Experience your Product with Integration</h2>
-                            <p>Conveniently drive stand-alone total linkage for process-centric content enthusiastically administrate. Dramatically grow high standards in customer service for applications.</p>
+                            <h2>{data?.title2}</h2>
+                            <p>{data?.description}</p>
                         </div>
                         <ul class="list-unstyled d-flex flex-wrap list-two-col mt-5 aos-init aos-animate" data-aos="fade-up">
-                            <li>
-                                <span class="d-block mb-4"><i class="fas fa-user fa-2x text-primary"></i></span>
-                                <h3 class="h5">Customer analysis</h3>
-                                <p>Objectively productize exceptional via customized.</p>
+                        {data?.step_data?.map((item,idx)=>(      <li key={idx}>
+                                <span class="d-block mb-4"><img src={`${import.meta.env.VITE_REACT_APP_IMAGE_PATH}/${item?.step_image}`} alt={item?.step_image_icon_alt_tag}   className="img-fluid object-fit-contain p-0" /></span>
+                                <h3 class="h5">{item?.step_title}</h3>
+                                <p>{item?.step_description}</p>
                             </li>
-                            <li>
-                                <span class="d-block mb-4"><i class="fas fa-clock fa-2x text-primary"></i></span>
-                                <h3 class="h5">Real time metrics</h3>
-                                <p>Interactively integrate extensible users maximizing resource. </p>
-                            </li>
+                        ))}
                         </ul>
                     </div>
                     <div class="col-lg-6 order-lg-1">
@@ -70,11 +66,11 @@ const Style9 = () => {
                             </ul>
                             <div class="bg-light-subtle text-center rounded-custom overflow-hidden pt-5 px-3 px-lg-5 mx-lg-auto">
                                 <div class="mb-5">
-                                    <h3 class="fw-medium h4">Best options to choose a Quiety, to make your own app and grow your business</h3>
+                                    <h3 class="fw-medium h4">{data?.title}</h3>
                                 </div>
                                 <div class="position-relative w-75 mx-auto">
                                     <img class="position-relative z-2 w-100 h-auto" src="assets/img/screen/half-iphone.svg" alt="Image Description"/>
-                                    <img class="position-absolute half-screen" src="assets/img/screen/app-screen-1.jpg" alt="Image Description"/>
+                                    <img class="position-absolute half-screen" src={`${import.meta.env.VITE_REACT_APP_IMAGE_PATH}/${data?.banner_image}`} alt={data?.banner_image_alt_tag}/>
                                 </div>
                             </div>
                         </div>

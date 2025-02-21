@@ -1,15 +1,16 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
-const Style3 = () => {
+const Style3 = ({data}) => {
   return (
-    <section class="pricing-section ptb-120 position-relative z-2">
+    <section class="pricing-section ptb-60 position-relative z-2">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-6 col-md-10">
                 <div class="section-heading text-center">
-                    <h4 class="h5 text-primary">Pricing</h4>
-                    <h2>Check Our Valuable Price</h2>
-                    <p>Conveniently mesh cooperative services via magnetic outsourcing. Dynamically grow value whereas accurate e-commerce vectors. </p>
+                    <h4 class="h5 text-primary">{data?.subtitle}</h4>
+                    <h2>{data?.title}</h2>
+                    <p>{data?.description}</p>
                 </div>
             </div>
         </div>
@@ -46,78 +47,32 @@ const Style3 = () => {
             </div>
         </div>
         <div class="row">
-            <div class="col-lg-4 col-md-6">
-                <div class="position-relative single-pricing-wrap rounded-custom bg-white custom-shadow p-5 mb-4 mb-lg-0">
-                    <div class="pricing-header mb-32">
-                        <h3 class="package-name text-primary d-block">Stater</h3>
-                        <h4 class="display-6 fw-semi-bold">$25<span>/month</span></h4>
+                    {data?.step_data?.map((item,idx)=>(  
+                        
+                        <div key={idx} class="col-lg-4 col-md-6">
+                            <div class={`position-relative single-pricing-wrap rounded-custom ${idx===1 ? "bg-dark text-white " : " bg-white custom-shadow"}  p-5 mb-4 mb-lg-0`}>
+                                <div class="pricing-header mb-32">
+                                    <h3 class={`package-name ${idx===1 ? "text-warning " : " text-primary"}  d-block`}>{item?.plan_title}</h3>
+                                    <h4 class="display-6 fw-semi-bold">${item?.plan_price}<span>/{item?.plan_type == "yearly" ? "year" : "month" }</span></h4>
+                                </div>
+                                <div class="pricing-info mb-4">
+                                    <ul class="pricing-feature-list list-unstyled">
+                                      
+                                        <li><i class={`${item?.plan_offer1 ? idx===1 ? "text-warning" : "text-primary" : "text-transparent"} fas fa-circle fa-2xs  me-2`}></i>{item?.plan_offer1}</li>
+                                        <li><i class={`${item?.plan_offer2 ? idx===1 ? "text-warning" : "text-primary" : "text-transparent"} fas fa-circle fa-2xs  me-2`}></i>{item?.plan_offer2}</li>
+                                        <li><i class={`${item?.plan_offer3 ? idx===1 ? "text-warning" : "text-primary" : "text-transparent"} fas fa-circle fa-2xs  me-2`}></i>{item?.plan_offer3}</li>
+                                        <li><i class={`${item?.plan_offer4 ? idx===1 ? "text-warning" : "text-primary" : "text-transparent"} fas fa-circle fa-2xs  me-2`}></i>{item?.plan_offer4}</li>
+                                        <li><i class={`${item?.plan_offer5 ? idx===1 ? "text-warning" : "text-primary" : "text-transparent"} fas fa-circle fa-2xs  me-2`}></i>{item?.plan_offer5}</li>
+                                        <li><i class={`${item?.plan_offer6 ? idx===1 ? "text-warning" : "text-primary" : "text-transparent"} fas fa-circle fa-2xs  me-2`}></i>{item?.plan_offer6}</li>
+                                        <li><i class={`${item?.plan_offer7 ? idx===1 ? "text-warning" : "text-primary" : "text-transparent"} fas fa-circle fa-2xs  me-2`}></i>{item?.plan_offer7}</li>
+                                        <li><i class={`${item?.plan_offer8 ? idx===1 ? "text-warning" : "text-primary" : "text-transparent"} fas fa-circle fa-2xs  me-2`}></i>{item?.plan_offer8}</li>
+                                    </ul>
+                                </div>
+                                <Link to={item?.plan_button_url} class={`btn ${idx===1 ? "btn-primary " : " btn-outline-primary"} mt-2`}>{item?.plan_button_text}</Link>
+                            </div>
+                        </div>
+                    ))}
                     </div>
-                    <div class="pricing-info mb-4">
-                        <ul class="pricing-feature-list list-unstyled">
-                            <li><i class="fas fa-circle fa-2xs text-primary me-2"></i> 1 Team</li>
-                            <li><i class="fas fa-circle fa-2xs text-primary me-2"></i> 1 Installed Agent</li>
-                            <li><i class="fas fa-circle fa-2xs text-primary me-2"></i> Real-Time Feedback</li>
-                            <li><i class="fas fa-circle fa-2xs text-primary me-2"></i> Video Dedicated Support</li>
-                            <li><i class="fas fa-circle fa-2xs text-primary me-2"></i> 1 Attacked Targets Per Month</li>
-                            <li><i class="fas fa-circle fa-2xs text-primary me-2"></i> Team Collaboration Tools</li>
-                            <li><i class="fas fa-circle fa-2xs text-primary me-2"></i> Automated Updated Features</li>
-                            <li><i class="fas fa-circle fa-2xs text-primary me-2"></i> 24/7 Life time Support</li>
-                        </ul>
-                    </div>
-                    <a href="request-demo.html" class="btn btn-outline-primary mt-2">Buy Now</a>
-
-                    <div class="dot-shape-bg position-absolute z--1 left--40 bottom--40">
-                        <img src="assets/img/shape/dot-big-square.svg" alt="shape" />
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-                <div class="position-relative single-pricing-wrap rounded-custom bg-dark text-white p-5 mb-4 mb-lg-0">
-                    <div class="pricing-header mb-32">
-                        <h3 class="package-name text-warning d-block">Advanced</h3>
-                        <h4 class="display-6 fw-semi-bold">$45<span>/month</span></h4>
-                    </div>
-                    <div class="pricing-info mb-4">
-                        <ul class="pricing-feature-list list-unstyled">
-                            <li><i class="fas fa-circle fa-2xs text-warning me-2"></i> 5 Team</li>
-                            <li><i class="fas fa-circle fa-2xs text-warning me-2"></i> 3 Installed Agent</li>
-                            <li><i class="fas fa-circle fa-2xs text-warning me-2"></i> Real-Time Feedback</li>
-                            <li><i class="fas fa-circle fa-2xs text-warning me-2"></i> Video Dedicated Support</li>
-                            <li><i class="fas fa-circle fa-2xs text-warning me-2"></i> 24 Attacked Targets Per Month</li>
-                            <li><i class="fas fa-circle fa-2xs text-warning me-2"></i> Team Collaboration Tools</li>
-                            <li><i class="fas fa-circle fa-2xs text-warning me-2"></i> Automated Updated Features</li>
-                            <li><i class="fas fa-circle fa-2xs text-warning me-2"></i> 24/7 Life time Support</li>
-                        </ul>
-                    </div>
-                    <a href="request-demo.html" class="btn btn-primary mt-2">Buy Now</a>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-                <div class="position-relative single-pricing-wrap rounded-custom bg-white custom-shadow p-5 mb-4 mb-lg-0">
-                    <div class="pricing-header mb-32">
-                        <h3 class="package-name text-primary d-block">Premium</h3>
-                        <h4 class="display-6 fw-semi-bold">$75<span>/month</span></h4>
-                    </div>
-                    <div class="pricing-info mb-4">
-                        <ul class="pricing-feature-list list-unstyled">
-                            <li><i class="fas fa-circle fa-2xs text-primary me-2"></i> 6 Team</li>
-                            <li><i class="fas fa-circle fa-2xs text-primary me-2"></i> 8 Installed Agent</li>
-                            <li><i class="fas fa-circle fa-2xs text-primary me-2"></i> Real-Time Feedback</li>
-                            <li><i class="fas fa-circle fa-2xs text-primary me-2"></i> Video Dedicated Support</li>
-                            <li><i class="fas fa-circle fa-2xs text-primary me-2"></i> 40 Attacked Targets Per Month</li>
-                            <li><i class="fas fa-circle fa-2xs text-primary me-2"></i> Team Collaboration Tools</li>
-                            <li><i class="fas fa-circle fa-2xs text-primary me-2"></i> Automated Updated Features</li>
-                            <li><i class="fas fa-circle fa-2xs text-primary me-2"></i> 24/7 Life time Support</li>
-                        </ul>
-                    </div>
-                    <a href="request-demo.html" class="btn btn-outline-primary mt-2">Buy Now</a>
-
-                    <div class="dot-shape-bg position-absolute z--1 right--40 top--40">
-                        <img src="assets/img/shape/dot-big-square.svg" alt="shape"/>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
 </section>
   )

@@ -1,6 +1,7 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
-const Style5 = () => {
+const Style5 = ({data}) => {
   return (
 <section class="feature-section ptb-120">
                 <div class="container">
@@ -8,44 +9,38 @@ const Style5 = () => {
                         <div class="row align-items-center justify-content-between">
                             <div class="col-lg-5 col-md-12">
                                 <div class="feature-content-wrap pe-lg-4 ptb-60 p-lg-0 mb-5 mb-lg-0">
-                                    <h5 class="text-primary h6 fw-bold">Features</h5>
-                                    <h2>Best Features that Help you Build Quality for Your Business</h2>
-                                    <p>Authoritatively underwhelm excellent methodologies via premium expertise. Assertively
-                                        morph competitive value rather than open-source imperatives. Conveniently e-enable
-                                        low-risk high-yield collaboration and idea-sharing.</p>
+                                    <h5 class="text-primary h6 fw-bold">{data?.subtitle}</h5>
+                                    <h2>{data?.title}</h2>
+                                    <p>{data?.description}</p>
 
-                                    <a href="#" class="btn btn-primary mt-4">Learn More</a>
+                                    <Link to={data?.button_url} class="btn btn-primary mt-4">{data?.button_text
+                                    }</Link>
                                 </div>
                             </div>
                             <div class="col-lg-7 col-md-12">
                                 <div class="row align-items-center justify-content-center position-relative mt--100 z-2">
                                     <div class="col-md-6">
-                                        <div class="cta-card rounded-custom text-center shadow p-5 bg-white my-4">
-                                            <div class="feature-icon d-inline-block bg-dark rounded mb-4">
-                                                <i class="fas fa-bezier-curve text-white fa-2x"></i>
+                                    {data?.step_data?.slice(0, 1).map((item,idx)=>
+                                 (         <div class="cta-card rounded-custom text-center shadow p-5 bg-white my-4">
+                                             <div class="feature-icon d-inline-block  rounded mb-4">
+                                            <img src={`${import.meta.env.VITE_REACT_APP_IMAGE_PATH}/${item?.step_image}`} alt={item?.step_image_icon_alt_tag} class="img-fluid p-0"/>
                                             </div>
-                                            <h3 class="h5 fw-bold">Quality First</h3>
-                                            <p class="mb-0">Progressively pontificate plug-and-play testing procedures
-                                                without tactical opportunities. </p>
+                                            <h3 class="h5 fw-bold">{item?.step_title}</h3>
+                                            <p class="mb-0">{item?.step_description} </p>
                                         </div>
+                                         ))}
                                     </div>
                                     <div class="col-md-6">
-                                        <div class="cta-card rounded-custom text-center shadow p-5 bg-white my-4">
-                                            <div class="feature-icon d-inline-block bg-danger rounded mb-4">
-                                                <i class="fas fa-comment text-white fa-2x"></i>
+                                    {data?.step_data?.slice(1, 3).map((item,idx)=>
+                                 (      <div class="cta-card rounded-custom text-center shadow p-5 bg-white my-4">
+                                            <div class="feature-icon d-inline-block  rounded mb-4">
+                                            <img src={`${import.meta.env.VITE_REACT_APP_IMAGE_PATH}/${item?.step_image}`} alt={item?.step_image_icon_alt_tag} class="img-fluid p-0"/>
                                             </div>
-                                            <h3 class="h5 fw-bold">Communication</h3>
-                                            <p class="mb-0">Collaboratively re-engineer standards compliant deliverables and
-                                                cross-media e-services. </p>
+                                            <h3 class="h5 fw-bold">{item?.step_title}</h3>
+                                            <p class="mb-0">{item?.step_description} </p>
                                         </div>
-                                        <div class="cta-card rounded-custom text-center shadow p-5 bg-white my-4">
-                                            <div class="feature-icon d-inline-block bg-success rounded mb-4">
-                                                <i class="fas fa-eye text-white fa-2x"></i>
-                                            </div>
-                                            <h3 class="h5 fw-bold">Reliability</h3>
-                                            <p class="mb-0">Globally deploy viral paradigms via value-added intellectual
-                                                capital fabricate inexpensive.</p>
-                                        </div>
+                                         ))}
+                            
                                     </div>
                                     <ul class="position-absolute animate-element parallax-element z--1" style={{
   transform: 'translate3d(0px, 0px, 0px)',

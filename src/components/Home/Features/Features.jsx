@@ -18,7 +18,7 @@ import Style16 from './Style16'
 import Style17 from './Style17'
 import Style18 from './Style18'
 
-const Features = () => {
+const Features = ({data,styleName}) => {
 
   const componentMap = {
     "Style 1": Style1,
@@ -45,7 +45,7 @@ const Features = () => {
   const Component =  componentMap[styleName]
 
     return (
-            <Component />
+            <Component data={data} />
   )
   
 }

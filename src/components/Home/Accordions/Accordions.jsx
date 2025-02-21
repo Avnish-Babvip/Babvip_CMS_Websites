@@ -22,7 +22,7 @@ const Accordions = ({data,styleName}) => {
   const Component =  componentMap[styleName]
 
   return (
-          <Component />
+          <Component data={data} />
 )
 
 }
