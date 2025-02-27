@@ -1,56 +1,67 @@
-import React from 'react'
+import React from "react";
 
-const Style3 = () => {
+const Style3 = ({ data }) => {
   return (
-<section class="image-feature ptb-120">
-            <div class="container">
-                <div class="row justify-content-between align-items-center">
-                    <div class="col-lg-5 col-12">
-                        <div class="feature-img-content">
-                            <div class="section-heading aos-init aos-animate" data-aos="fade-up">
-                                <h2>Browse our world class features</h2>
-                                <p>
-                                    Energistically underwhelm progressive metrics via value-added
-                                    impact magnetic world-class paradigms portals. Pontificate
-                                    reliable metrics with enabled maintain clicks-and-mortar
-                                    manufactured.
-                                </p>
-                            </div>
-                            <ul class="list-unstyled d-flex flex-wrap list-two-col mb-0 aos-init aos-animate" data-aos="fade-up" data-aos-delay="50">
-                                <li>
-                                    <div class="icon-box">
-                                        <i class="fas fa-users text-white bg-primary rounded"></i>
-                                    </div>
-                                    <h3 class="h5">Customer Aanalysis</h3>
-                                    <p>Objectively productize exceptional via customized.</p>
-                                </li>
-                                <li>
-                                    <div class="icon-box">
-                                        <i class="fas fa-fingerprint text-white bg-danger rounded"></i>
-                                    </div>
-                                    <h3 class="h5">Real Time Metrics</h3>
-                                    <p>
-                                        Interactively integrate extensible users maximizing resource.
-                                    </p>
-                                </li>
-                            </ul>
-                        </div>
+    <section class="image-feature ptb-80">
+      <div class="container">
+        <div class="row justify-content-between align-items-center">
+          <div class="col-lg-5 col-12">
+            <div class="feature-img-content">
+              <div
+                class="section-heading aos-init aos-animate"
+                data-aos="fade-up"
+              >
+                <h2>{data?.title}</h2>
+                <p>{data?.description}</p>
+              </div>
+              <ul
+                class="list-unstyled d-flex flex-wrap list-two-col mb-0 aos-init aos-animate"
+                data-aos="fade-up"
+                data-aos-delay="50"
+              >
+                {data?.step_data?.map((item, idx) => (
+                  <li>
+                    <div class="icon-box">
+                      <i class="fas fa-users text-white bg-primary rounded"></i>
                     </div>
-                    <div class="col-lg-6 col-12">
-                        <div class="feature-img-holder p-lg-5 pt-3">
-                            <div class="p-lg-5 p-3 bg-danger-soft position-relative rounded-custom d-block feature-img-wrap">
-                                <div class="position-relative">
-                                    <img src="assets/img/screen/widget-5.png" class="img-fluid rounded-custom position-relative aos-init aos-animate" alt="feature-image" data-aos="fade-up" data-aos-delay="50"/>
-                                    <img src="assets/img/screen/widget-3.png" class="img-fluid rounded-custom shadow position-absolute bottom--100 right--100 hide-medium aos-init aos-animate" alt="feature-image" data-aos="fade-up" data-aos-delay="100"/>
-                                </div>
-                                <div class="position-absolute bg-dark-soft z--1 dot-mask dm-size-12 dm-wh-250 top-left"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                    <h3 class="h5">{item?.step_title}</h3>
+                    <p>{item?.step_description}</p>
+                  </li>
+                ))}
+              </ul>
             </div>
-        </section>
-  )
-}
+          </div>
+          <div class="col-lg-6 col-12">
+            <div class="feature-img-holder p-lg-5 pt-3">
+              <div class="p-lg-5 p-3 bg-danger-soft position-relative rounded-custom d-block feature-img-wrap">
+                <div class="position-relative">
+                  <img
+                    src={`${import.meta.env.VITE_REACT_APP_IMAGE_PATH}/${
+                      data?.banner_image
+                    }`}
+                    alt={data?.banner_image1_alt_tag}
+                    class="img-fluid rounded-custom position-relative aos-init aos-animate"
+                    data-aos="fade-up"
+                    data-aos-delay="50"
+                  />
+                  <img
+                    src={`${import.meta.env.VITE_REACT_APP_IMAGE_PATH}/${
+                      data?.banner_image1
+                    }`}
+                    alt={data?.banner_image2_alt_tag}
+                    class="img-fluid rounded-custom shadow position-absolute bottom--100 right--100 hide-medium aos-init aos-animate"
+                    data-aos="fade-up"
+                    data-aos-delay="100"
+                  />
+                </div>
+                <div class="position-absolute bg-dark-soft z--1 dot-mask dm-size-12 dm-wh-250 top-left"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
 
-export default Style3
+export default Style3;

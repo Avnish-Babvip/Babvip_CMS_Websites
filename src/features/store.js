@@ -7,19 +7,26 @@ import headMenu from "./slices/headMenu";
 import footerMenu from "./slices/footerMenu";
 import siteSettings from "./slices/siteSettings";
 import home from "./slices/home";
-
+import blog from "./slices/blog";
+import helpCenter from "./slices/helpCenter";
+import team from "./slices/team"
+import submission from "./slices/submission"
 
 const rootReducer = combineReducers({
   headMenu ,
   footerMenu,
   siteSettings,
   home,
+  blog,
+  helpCenter,
+  team,
+  submission
   });
 
   
  // Redux-persist configuration
  const persistConfig = {
-  key: "HotHouseAdminPanel",
+  key: "BABVIPSOFTWARES",
   version: 1,
   storage,
   transforms: [

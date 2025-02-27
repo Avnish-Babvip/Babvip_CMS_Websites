@@ -8,7 +8,7 @@ import Style5 from './Style5'
 
 
 
-const IntegrationStyle = () => {
+const IntegrationStyle = ({data,styleName}) => {
 
   const componentMap = {
     "Style 1": Style1,
@@ -23,7 +23,7 @@ const IntegrationStyle = () => {
   const Component =  componentMap[styleName]
 
     return (
-            <Component />
+            <Component data={data} />
   )
   
 }

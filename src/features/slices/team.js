@@ -1,36 +1,35 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { getAllHeadMenu } from "../actions/headMenu";
+import {  getTeam} from "../actions/team";
 
 
 const initialState = {
   isLoading: false,
-  headMenuData: [],
+  teamData: [],
   errorMessage: "",
 };
 
 // ---------------------------------------------------------------------------------------
 
- const headMenuSlice = createSlice({
-  name: "headMenuSlice",
+ const teamSlice = createSlice({
+  name: "teamSlice",
   initialState,
   reducers: {},
   extraReducers: (builder) => {
     builder
-      
-      .addCase(getAllHeadMenu.pending, (state) => {
+   
+      .addCase(getTeam.pending, (state) => {
         state.isLoading = true;
         state.errorMessage = "";
       })
-      .addCase(getAllHeadMenu.fulfilled, (state, action) => {
+      .addCase(getTeam.fulfilled, (state, action) => {
         state.isLoading = false;
         state.errorMessage = "";
-        state.headMenuData = action.payload.data; 
-
+        state.teamData = action.payload.data; 
       })
-      .addCase(getAllHeadMenu.rejected, (state, action) => {
+      .addCase(getTeam.rejected, (state, action) => {
         state.isLoading = false;
         state.isSuccess = false;
-        state.errorMessage = action.payload || "Failed to fetch head menu.";
+        state.errorMessage = action.payload || "Failed to fetch help center";
       })
 
   },
@@ -39,5 +38,5 @@ const initialState = {
 // -------------------------------------------------------------------------
 
 // Action creators are generated for each case reducer function
-export const {} = headMenuSlice.actions;
-export default headMenuSlice.reducer;
+export const {} = teamSlice.actions;
+export default teamSlice.reducer;

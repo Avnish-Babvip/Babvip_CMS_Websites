@@ -1,36 +1,35 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { getAllHeadMenu } from "../actions/headMenu";
+import {  getHelpCenter} from "../actions/helpCenter";
 
 
 const initialState = {
   isLoading: false,
-  headMenuData: [],
+  helpCenterData: [],
   errorMessage: "",
 };
 
 // ---------------------------------------------------------------------------------------
 
- const headMenuSlice = createSlice({
-  name: "headMenuSlice",
+ const helpCenterSlice = createSlice({
+  name: "helpCenterSlice",
   initialState,
   reducers: {},
   extraReducers: (builder) => {
     builder
-      
-      .addCase(getAllHeadMenu.pending, (state) => {
+   
+      .addCase(getHelpCenter.pending, (state) => {
         state.isLoading = true;
         state.errorMessage = "";
       })
-      .addCase(getAllHeadMenu.fulfilled, (state, action) => {
+      .addCase(getHelpCenter.fulfilled, (state, action) => {
         state.isLoading = false;
         state.errorMessage = "";
-        state.headMenuData = action.payload.data; 
-
+        state.helpCenterData = action.payload.data; 
       })
-      .addCase(getAllHeadMenu.rejected, (state, action) => {
+      .addCase(getHelpCenter.rejected, (state, action) => {
         state.isLoading = false;
         state.isSuccess = false;
-        state.errorMessage = action.payload || "Failed to fetch head menu.";
+        state.errorMessage = action.payload || "Failed to fetch help center";
       })
 
   },
@@ -39,5 +38,5 @@ const initialState = {
 // -------------------------------------------------------------------------
 
 // Action creators are generated for each case reducer function
-export const {} = headMenuSlice.actions;
-export default headMenuSlice.reducer;
+export const {} = helpCenterSlice.actions;
+export default helpCenterSlice.reducer;

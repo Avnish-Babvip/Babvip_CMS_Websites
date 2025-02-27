@@ -1,116 +1,99 @@
-import React from 'react'
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { getLatestThreeBlogs } from "../../../features/actions/blog";
+import { Link } from "react-router-dom";
 
-const Style3 = ({data}) => {
+const Style3 = ({ data }) => {
+  const dispatch = useDispatch();
+  const { blogData } = useSelector((state) => state.blog);
+
+  useEffect(() => {
+    dispatch(getLatestThreeBlogs());
+  }, []);
+
+  const formatDate = (dateString) => {
+    const date = new Date(dateString);
+    return date.toLocaleDateString("en-US", {
+      month: "short",
+      day: "2-digit",
+      year: "numeric",
+    });
+  };
+
   return (
-<section class="related-blog-list ptb-120 bg-light-subtle">
-                <div class="container">
-                    <div class="row align-items-center justify-content-between">
-                        <div class="col-lg-4 col-md-12">
-                            <div class="section-heading">
-                            <h4 class="h5 text-primary">{data?.title}</h4>
-                            <h2>{data?.description}</h2>
-                            </div>
+    <section class="related-blog-list ptb-80 bg-light-subtle">
+      <div class="container">
+        <div class="row align-items-center justify-content-between">
+          <div class="col-lg-4 col-md-12">
+            <div class="section-heading">
+              <h4 class="h5 text-primary">{data?.title}</h4>
+              <h2>{data?.description}</h2>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          {Array.isArray(blogData) &&
+            blogData?.map((item, idx) => (
+              <div key={idx} class="col-lg-4 col-md-6">
+                <div class="single-article rounded-custom my-3">
+                  <Link to={`/blog/${item?.blog_slug}`}>
+                    <div class="article-img">
+                      <img
+                        src={`${import.meta.env.VITE_REACT_APP_IMAGE_PATH}/${
+                          item?.blog_image1
+                        }`}
+                        alt={item?.image1_alt}
+                        class="img-fluid"
+                      />
+                    </div>{" "}
+                  </Link>
+                  <Link className="text-reset" to={`/blog/${item?.blog_slug}`}>
+                    <div class="article-content p-4">
+                      <div class="article-category mb-4 d-block">
+                        <a
+                          href="#"
+                          onClick={(e) => e.preventDefault()}
+                          class="d-inline-block text-warning badge bg-warning-soft"
+                        >
+                          {item?.category?.category_name}
+                        </a>
+                      </div>
+                      <a href="#" onClick={(e) => e.preventDefault()}>
+                        <h2 class="h5 article-title limit-2-line-text">
+                          {item?.blog_title}
+                        </h2>
+                      </a>
+                      <p class="limit-2-line-text">
+                        {item?.blog_short_details1}
+                      </p>
+
+                      <div class="d-flex align-items-center pt-4">
+                        <div class="avatar">
+                          <img
+                            src={`${
+                              import.meta.env.VITE_REACT_APP_IMAGE_PATH
+                            }/${item?.user?.profile_image}`}
+                            alt="avatar"
+                            width="40"
+                            class="img-fluid rounded-circle me-3"
+                          />
                         </div>
+                        <div class="avatar-info">
+                          <h6 class="mb-0 avatar-name">{item?.user?.name}</h6>
+                          <span class="small fw-medium text-muted">
+                            {formatDate(item?.created_at)}
+                          </span>
+                        </div>
+                      </div>
                     </div>
-                    <div class="row">
-                    
-                    <div class="col-lg-4 col-md-6">
-                            <div class="single-article rounded-custom my-3">
-                            <a href="https://babvipsoftwares.com/blog/manufacturing-management-with-babvip-softwares" class="article-img">
-                                <img src="https://babvipsoftwares.com/storage/uploads/6742b017-785b-4d33-9183-10e168cbced7.jpg" alt="" class="img-fluid"/>
-                                </a>
-                                <div class="article-content p-4">
-                                    <div class="article-category mb-4 d-block">
-                                        <a href="javascript:;" class="d-inline-block text-warning badge bg-warning-soft">News</a>
-                                    </div>
-                                     <a href="https://babvipsoftwares.com/blog/manufacturing-management-with-babvip-softwares">
-                                        <h2 class="h5 article-title limit-2-line-text">Manufacturing Management with BABVIP Softwares</h2>
-                                    </a>
-                                    <p class="limit-2-line-text">BABVIP Softwares provides a powerful Manufacturing Management System that integrates ERP, CRM, and PMS tools to optimize production, inventory, and workforce management..</p>
-
-
-                                    <a href="javascript:;">
-                                        <div class="d-flex align-items-center pt-4">
-                                            <div class="avatar">
-                                                <img src="https://babvipsoftwares.com/admin/uploads/admin-profile/70010236-7e52-4d89-839c-d1cd23f4935a.png" alt="avatar" width="40" class="img-fluid rounded-circle me-3"/>
-                                            </div>
-                                            <div class="avatar-info">
-                                                <h6 class="mb-0 avatar-name">Akhilesh Bansal</h6>
-                                                <span class="small fw-medium text-muted">Dec 16 2024</span>
-                                            </div>
-                                        </div>
-                                    </a>
-
-                                </div>
-                            </div>
-                        </div>
-                        
-                    <div class="col-lg-4 col-md-6">
-                            <div class="single-article rounded-custom my-3">
-                            <a href="https://babvipsoftwares.com/blog/agriculture-management-with-babvip-softwares-erp-solutions" class="article-img">
-                                <img src="https://babvipsoftwares.com/storage/uploads/b83ba9c0-4ccf-4b7a-b306-4d8414963a70.png" alt="" class="img-fluid"/>
-                                </a>
-                                <div class="article-content p-4">
-                                    <div class="article-category mb-4 d-block">
-                                        <a href="javascript:;" class="d-inline-block text-warning badge bg-warning-soft">News</a>
-                                    </div>
-                                     <a href="https://babvipsoftwares.com/blog/agriculture-management-with-babvip-softwares-erp-solutions">
-                                        <h2 class="h5 article-title limit-2-line-text">Agriculture Management with Babvip Softwares' ERP Solutions</h2>
-                                    </a>
-                                    <p class="limit-2-line-text">Babvip Softwares revolutionizes agriculture management with ERP, CRM, and HRM tools. Optimize inventory, improve productivity, and stay ahead with our intuitive solutions..</p>
-
-
-                                    <a href="javascript:;">
-                                        <div class="d-flex align-items-center pt-4">
-                                            <div class="avatar">
-                                                <img src="https://babvipsoftwares.com/admin/uploads/admin-profile/70010236-7e52-4d89-839c-d1cd23f4935a.png" alt="avatar" width="40" class="img-fluid rounded-circle me-3"/>
-                                            </div>
-                                            <div class="avatar-info">
-                                                <h6 class="mb-0 avatar-name">Akhilesh Bansal</h6>
-                                                <span class="small fw-medium text-muted">Dec 13 2024</span>
-                                            </div>
-                                        </div>
-                                    </a>
-
-                                </div>
-                            </div>
-                        </div>
-                        
-                    <div class="col-lg-4 col-md-6">
-                            <div class="single-article rounded-custom my-3">
-                            <a href="https://babvipsoftwares.com/blog/transforming-inventory-management-with-babvip-softwares" class="article-img">
-                                <img src="https://babvipsoftwares.com/storage/uploads/1aa5a172-3dc7-4970-8c47-872de4681dd7.jpg" alt="" class="img-fluid"/>
-                                </a>
-                                <div class="article-content p-4">
-                                    <div class="article-category mb-4 d-block">
-                                        <a href="javascript:;" class="d-inline-block text-warning badge bg-warning-soft">News</a>
-                                    </div>
-                                     <a href="https://babvipsoftwares.com/blog/transforming-inventory-management-with-babvip-softwares">
-                                        <h2 class="h5 article-title limit-2-line-text">Transforming Inventory Management with Babvip Softwares</h2>
-                                    </a>
-                                    <p class="limit-2-line-text">Inventory management involves tracking, controlling, and optimizing stock levels to ensure operational efficiency and customer satisfaction..</p>
-
-
-                                    <a href="javascript:;">
-                                        <div class="d-flex align-items-center pt-4">
-                                            <div class="avatar">
-                                                <img src="https://babvipsoftwares.com/admin/uploads/admin-profile/70010236-7e52-4d89-839c-d1cd23f4935a.png" alt="avatar" width="40" class="img-fluid rounded-circle me-3"/>
-                                            </div>
-                                            <div class="avatar-info">
-                                                <h6 class="mb-0 avatar-name">Akhilesh Bansal</h6>
-                                                <span class="small fw-medium text-muted">Dec 13 2024</span>
-                                            </div>
-                                        </div>
-                                    </a>
-
-                                </div>
-                            </div>
-                        </div>
-                        
-                    </div>
+                  </Link>
                 </div>
-            </section>
-  )
-}
+              </div>
+            ))}
+        </div>
+      </div>
+    </section>
+  );
+};
 
-export default Style3
+export default Style3;

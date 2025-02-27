@@ -1,53 +1,73 @@
-import React from 'react'
+import React from "react";
 
-const Style5 = () => {
+const Style5 = ({ data }) => {
   return (
     <section class="image-feature pt-60 pb-120">
-            <div class="container">
-                <div class="row justify-content-between align-items-center">
-                    <div class="col-lg-5 col-12">
-                        <div class="feature-img-content">
-                            <div class="section-heading aos-init aos-animate" data-aos="fade-up">
-                                <h2>We create software &amp; digital product</h2>
-                                <p>
-                                    Credibly deliver out-of-the-box benefits through just in time best
-                                    practices. Globally orchestrate holistic communities without
-                                    visualize performance based premium alignments.
-                                </p>
-                            </div>
-                            <ul class="list-unstyled d-flex flex-wrap list-two-col mt-5 aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
-                                <li>
-                                    <div class="icon-box">
-                                        <i class="fas fa-briefcase text-white bg-warning rounded"></i>
-                                    </div>
-                                    <h3 class="h5">Fast Services</h3>
-                                    <p>Rapidiously exploit robust solutions without alignments.</p>
-                                </li>
-                                <li>
-                                    <div class="icon-box">
-                                        <i class="fas fa-truck text-white bg-info rounded"></i>
-                                    </div>
-                                    <h3 class="h5">Free Shipping</h3>
-                                    <p>Interactively integrate whereas extensible users resource.</p>
-                                </li>
-                            </ul>
-                        </div>
+      <div class="container">
+        <div class="row justify-content-between align-items-center">
+          <div class="col-lg-5 col-12">
+            <div class="feature-img-content">
+              <div
+                class="section-heading aos-init aos-animate"
+                data-aos="fade-up"
+              >
+                <h2>{data?.title}</h2>
+                <p>{data?.description}</p>
+              </div>
+              <ul
+                class="list-unstyled d-flex flex-wrap list-two-col mt-5 aos-init aos-animate"
+                data-aos="fade-up"
+                data-aos-delay="100"
+              >
+                {data?.step_data?.map((item, idx) => (
+                  <li>
+                    <div class="icon-box">
+                      <img
+                        src={`${import.meta.env.VITE_REACT_APP_IMAGE_PATH}/${
+                          item?.step_image
+                        }`}
+                        alt={item?.step_image_icon_alt_tag}
+                        className="img-fluid object-fit-contain p-0"
+                      />
                     </div>
-                    <div class="col-lg-6 col-12">
-                        <div class="feature-img-holder p-lg-5 pb-3">
-                            <div class="bg-danger-soft p-lg-5 p-3 rounded-custom position-relative d-block feature-img-wrap">
-                                <div class="position-relative">
-                                    <img src="assets/img/screen/widget-9.png" class="img-fluid rounded-custom position-relative aos-init aos-animate" alt="feature-image" data-aos="fade-up" data-aos-delay="50"/>
-                                    <img src="assets/img/screen/widget-10.png" class="img-fluid rounded-custom shadow position-absolute top--100 right--100 hide-medium aos-init aos-animate" alt="feature-image" data-aos="fade-up" data-aos-delay="100"/>
-                                </div>
-                                <div class="position-absolute bg-dark-soft z--1 dot-mask dm-size-12 dm-wh-250 bottom-left"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                    <h3 class="h5">{item?.step_title}</h3>
+                    <p>{item?.step_description}</p>
+                  </li>
+                ))}
+              </ul>
             </div>
-        </section>
-  )
-}
+          </div>
+          <div class="col-lg-6 col-12">
+            <div class="feature-img-holder p-lg-5 pb-3">
+              <div class="bg-danger-soft p-lg-5 p-3 rounded-custom position-relative d-block feature-img-wrap">
+                <div class="position-relative">
+                  <img
+                    src={`${import.meta.env.VITE_REACT_APP_IMAGE_PATH}/${
+                      data?.banner_image
+                    }`}
+                    alt={data?.banner_image1_alt_tag}
+                    class="img-fluid rounded-custom position-relative aos-init aos-animate"
+                    data-aos="fade-up"
+                    data-aos-delay="50"
+                  />
+                  <img
+                    src={`${import.meta.env.VITE_REACT_APP_IMAGE_PATH}/${
+                      data?.banner_image1
+                    }`}
+                    alt={data?.banner_image2_alt_tag}
+                    class="img-fluid rounded-custom shadow position-absolute top--100 right--100 hide-medium aos-init aos-animate"
+                    data-aos="fade-up"
+                    data-aos-delay="100"
+                  />
+                </div>
+                <div class="position-absolute bg-dark-soft z--1 dot-mask dm-size-12 dm-wh-250 bottom-left"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
 
-export default Style5
+export default Style5;

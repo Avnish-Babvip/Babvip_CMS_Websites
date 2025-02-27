@@ -16,7 +16,7 @@ const initialState = {
   reducers: {},
   extraReducers: (builder) => {
     builder
-      // Handle Get Banners
+     
       .addCase(getAllSiteSettings.pending, (state) => {
         state.isLoading = true;
         state.errorMessage = "";
@@ -24,7 +24,7 @@ const initialState = {
       .addCase(getAllSiteSettings.fulfilled, (state, action) => {
         state.isLoading = false;
         state.errorMessage = "";
-        state.siteSettingsData = action.payload; // Corrected from sidesData to bannerData
+        state.siteSettingsData = action.payload; 
 
       })
       .addCase(getAllSiteSettings.rejected, (state, action) => {

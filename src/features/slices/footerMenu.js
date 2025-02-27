@@ -17,7 +17,7 @@ const initialState = {
   reducers: {},
   extraReducers: (builder) => {
     builder
-      // Handle Get Banners
+      
       .addCase(getAllFooterMenu.pending, (state) => {
         state.isLoading = true;
         state.errorMessage = "";
@@ -25,7 +25,7 @@ const initialState = {
       .addCase(getAllFooterMenu.fulfilled, (state, action) => {
         state.isLoading = false;
         state.errorMessage = "";
-        state.footerMenuData = action.payload.data; // Corrected from sidesData to bannerData
+        state.footerMenuData = action.payload.data; 
 
       })
       .addCase(getAllFooterMenu.rejected, (state, action) => {

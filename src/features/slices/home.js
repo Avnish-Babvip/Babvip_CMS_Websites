@@ -16,7 +16,7 @@ const initialState = {
   reducers: {},
   extraReducers: (builder) => {
     builder
-      // Handle Get Banners
+   
       .addCase(getAllHomeData.pending, (state) => {
         state.isLoading = true;
         state.errorMessage = "";

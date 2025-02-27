@@ -1,24 +1,16 @@
-import React from 'react'
-import Style1 from './Style1'
-import Style2 from './Style2';
+import React from "react";
+import Style1 from "./Style1";
+import Style2 from "./Style2";
 
-
-
-
-const ContactUs = () => {
-
+const ContactUs = ({ data, styleName }) => {
   const componentMap = {
     "Style 1": Style1,
-    "Style 2": Style2
-
+    "Style 2": Style2,
   };
- 
-  const Component =  componentMap[styleName]
 
-    return (
-            <Component />
-  )
-  
-}
+  const Component = componentMap[styleName];
 
-export default ContactUs
+  return <Component data={data} />;
+};
+
+export default ContactUs;

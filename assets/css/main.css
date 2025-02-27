@@ -65,3 +65,7 @@
 .text-transparent {
   color: transparent !important;
 }
+
+.hover-white:hover {
+  color: white !important;
+}
