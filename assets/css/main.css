@@ -69,3 +69,10 @@
 .hover-white:hover {
   color: white !important;
 }
+
+
+.navbar .dropdown:hover .dropdown-menu {
+  display: block !important;
+  visibility: visible;
+  opacity: 1;
+}

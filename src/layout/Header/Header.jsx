@@ -8,6 +8,24 @@ const Header = () => {
     (state) => state.siteSettings.siteSettingsData
   );
 
+  // useEffect(() => {
+  //   const dropdowns = document.querySelectorAll(".nav-item.dropdown");
+
+  //   dropdowns.forEach((dropdown) => {
+  //     dropdown.addEventListener("mouseenter", function () {
+  //       let dropdownMenu = this.querySelector(".dropdown-menu");
+  //       dropdownMenu.classList.add("show");
+  //       dropdownMenu.style.display = "block";
+  //     });
+
+  //     dropdown.addEventListener("mouseleave", function () {
+  //       let dropdownMenu = this.querySelector(".dropdown-menu");
+  //       dropdownMenu.classList.remove("show");
+  //       dropdownMenu.style.display = "none";
+  //     });
+  //   });
+  // }, []);
+
   return (
     <>
       <header class="main-header w-100 z-10">
@@ -58,7 +76,7 @@ const Header = () => {
                         >
                           {item?.title}
                         </a>
-                        <div class="dropdown-menu border-0 rounded-custom shadow py-0  homepage-list-wrapper">
+                        <div class="dropdown-menu border-0 rounded-custom shadow py-0  homepage-list-wrapper ">
                           <div class="dropdown-grid  rounded-custom  homepage-dropdown">
                             {/* Custom Image Mega Header Layout  */}
                             <div className="" style={{ width: "755px" }}>
