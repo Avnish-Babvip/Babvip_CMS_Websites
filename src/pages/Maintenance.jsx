@@ -3,11 +3,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { addMaintenanceEnquiry } from "../features/actions/submission";
 import { useForm } from "react-hook-form";
 import ButtonLoader from "../components/Loader/ButtonLoader";
+import { Link } from "react-router-dom";
 
 const Maintenance = () => {
   const dispatch = useDispatch();
   const { isLoading } = useSelector((state) => state.submission);
-  const { siteSetting } = useSelector(
+  const { siteSetting, footerSetting } = useSelector(
     (state) => state.siteSettings.siteSettingsData
   );
 
@@ -822,6 +823,7 @@ const Maintenance = () => {
               </div>
             </div>
             <div class="col-lg-6 col-md-8">
+              <h1 class="title text-center mb-4">Contact us for Enquiry</h1>
               <form
                 onSubmit={handleSubmit(onSubmit)}
                 class="register-form contactForm"
@@ -982,6 +984,41 @@ const Maintenance = () => {
               </form>
             </div>
           </div>
+        </div>
+        <div style={{ "text-align": "center", "margin-top": "50px" }}>
+          <Link
+            to={siteSetting?.setting_data?.facebook_page_url}
+            class="sc_facebook"
+            target="_blank"
+          >
+            <img
+              src="https://img.icons8.com/?size=70&id=13912&format=png&color=000000"
+              alt="fb"
+            />
+          </Link>
+          <Link
+            to={siteSetting?.setting_data?.instagram_page_url}
+            class="sc_instagram"
+            target="_blank"
+          >
+            <img
+              src="https://img.icons8.com/?size=70&id=Xy10Jcu1L2Su&format=png&color=000000"
+              alt="insta"
+            />
+          </Link>
+          <Link
+            to={siteSetting?.setting_data?.linkdin_page_url}
+            class="sc_google"
+            target="_blank"
+          >
+            <img
+              src="https://img.icons8.com/?size=70&id=xuvGCOXi8Wyg&format=png&color=000000"
+              alt="linkedin"
+            />
+          </Link>
+          <p class="copy-line">
+            {footerSetting?.setting_data?.footer_tag_line}{" "}
+          </p>
         </div>
       </section>
     </>

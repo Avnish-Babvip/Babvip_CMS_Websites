@@ -4,7 +4,6 @@ import { Outlet, useLocation } from "react-router-dom";
 import Header from "../Header/Header";
 const Footer = lazy(() => import("../Footer/Footer"));
 import ErrorBoundary from "../../components/ErrorBoundary/ErrorBoundary";
-import { Toaster } from "sonner";
 
 // --------------------------------------------------------------------------------
 

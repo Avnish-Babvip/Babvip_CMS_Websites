@@ -6,21 +6,19 @@ const getCsrfToken = async () => {
     const response = await instance.get("/site/csrf-token");
     return response.data.csrf_token;
   };  
-  
-const csrfToken = await getCsrfToken();
 
 const getIpAddress = async () => {
     const response = await axios.get("https://api64.ipify.org/?format=json");
     return response.data.ip;
   };  
 
-const ipAddress = await getIpAddress();  
 
 
 export const addContactDetails = createAsyncThunk(
     "/site/savecontactenquiry",
     async (payload, { rejectWithValue }) => {
       try {
+        const ipAddress = await getIpAddress();  
           const {data} = await instance.post(`/site/savecontactenquiry`, {...payload,ip_address:ipAddress}, {
               withCredentials: false,
               headers: {
@@ -38,11 +36,12 @@ export const addMaintenanceEnquiry = createAsyncThunk(
     "/site/savemaintinanceenquiry",
     async (payload, { rejectWithValue }) => {
       try {
+        const ipAddress = await getIpAddress();  
           const {data} = await instance.post(`/site/savemaintinanceenquiry`, {...payload,ip_address:ipAddress}, {
               withCredentials: false,
               headers: {
                 "Content-type": "application/json",
-                "X-CSRF-TOKEN": csrfToken,
+                "X-CSRF-TOKEN": await getCsrfToken(),
               },
             });
         return data;
@@ -55,11 +54,12 @@ export const addNewsletter = createAsyncThunk(
     "/site/savenewsletterapi",
     async (payload, { rejectWithValue }) => {
       try {
+        const ipAddress = await getIpAddress();  
           const {data} = await instance.post(`/site/savenewsletterapi`, {...payload,ip_address:ipAddress}, {
               withCredentials: false,
               headers: {
                 "Content-type": "application/json",
-                "X-CSRF-TOKEN": csrfToken,
+                "X-CSRF-TOKEN": await getCsrfToken(),
               },
             });
         return data;

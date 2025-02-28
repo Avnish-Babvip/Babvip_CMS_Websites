@@ -13,6 +13,7 @@ import Accordions from "../components/Home/Accordions/Accordions";
 import Features from "../components/Home/Features/Features";
 import IntegrationStyle from "../components/Home/IntegrationStyle/IntegrationStyle";
 import ContactUs from "../components/Home/ContactUs/ContactUs";
+import Portfolio from "../components/Home/Portfolio/Portfolio";
 
 // Lazy Loading 😴
 const HelpCenter = lazy(() =>
@@ -40,6 +41,7 @@ const Home = () => {
     Blog: BlogStyle,
     Contact: ContactUs,
     "Help Center": HelpCenter,
+    Portfolio: Portfolio,
   };
 
   useEffect(() => {
