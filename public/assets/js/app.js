@@ -501,26 +501,26 @@ jQuery(function ($) {
   });
 
   //insurance gallery slider
-  var swiper = new Swiper('.ins-gallery-slider', {
-    slidesPerView: 3,
-    loop: true,
-    speed: 800,
-    spaceBetween: 24,
-    navigation: {
-      nextEl: '.swiper-btn-next',
-      prevEl: '.swiper-btn-prev'
-    },
-    breakpoints: {
-      0: {
-        slidesPerView: 1,
-        centeredSlides: false
-      },
-      768: {
-        slidesPerView: 3,
-        centeredSlides: true
-      }
-    }
-  });
+  // var swiper = new Swiper('.ins-gallery-slider', {
+  //   slidesPerView: 3,
+  //   loop: true,
+  //   speed: 800,
+  //   spaceBetween: 24,
+  //   navigation: {
+  //     nextEl: '.swiper-btn-next',
+  //     prevEl: '.swiper-btn-prev'
+  //   },
+  //   breakpoints: {
+  //     0: {
+  //       slidesPerView: 1,
+  //       centeredSlides: false
+  //     },
+  //     768: {
+  //       slidesPerView: 3,
+  //       centeredSlides: true
+  //     }
+  //   }
+  // });
 
   //insurance feedback slider
   var swiper = new Swiper('.ins-feedback-slider', {
@@ -646,25 +646,25 @@ jQuery(function ($) {
   });
   crmFeedbackSlider.controller.control = crmFeedbackThumbSlider;
   crmFeedbackThumbSlider.controller.control = crmFeedbackSlider;
-  var dgPortfolioSlider = new Swiper('.dg-portfolio-slider', {
-    spaceBetween: 24,
-    pagination: {
-      el: '.dg-portfolio-slider-control',
-      type: 'bullets',
-      clickable: true
-    },
-    breakpoints: {
-      0: {
-        slidesPerView: 1
-      },
-      768: {
-        slidesPerView: 2
-      },
-      1200: {
-        slidesPerView: 3
-      }
-    }
-  });
+  // var dgPortfolioSlider = new Swiper('.dg-portfolio-slider', {
+  //   spaceBetween: 24,
+  //   pagination: {
+  //     el: '.dg-portfolio-slider-control',
+  //     type: 'bullets',
+  //     clickable: true
+  //   },
+  //   breakpoints: {
+  //     0: {
+  //       slidesPerView: 1
+  //     },
+  //     768: {
+  //       slidesPerView: 2
+  //     },
+  //     1200: {
+  //       slidesPerView: 3
+  //     }
+  //   }
+  // });
   var dgTeamSlider = new Swiper('.dg-team-slider', {
     spaceBetween: 24,
     loop: true,

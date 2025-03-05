@@ -4,7 +4,7 @@
 @import "https://fonts.googleapis.com/css2?family=Lily+Script+One&display=swap";
 
 /* Bootstrap */
-@import "../assets/css/main.css"; /* Import your custom Bootstrap styles here */
+@import "/assets/css/main.css"; /* Import your custom Bootstrap styles here */
 
 
 

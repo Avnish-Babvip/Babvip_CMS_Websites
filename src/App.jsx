@@ -5,10 +5,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { getAllHeadMenu } from "./features/actions/headMenu";
 import { getAllFooterMenu } from "./features/actions/footerMenu";
 import { Suspense, useEffect } from "react";
-import { getAllSiteSettings } from "./features/actions/siteSettings";
 import { HelmetProvider } from "react-helmet-async";
 import Loader from "./components/Loader/Loader";
 import { Toaster } from "sonner";
+import { getAllSiteSettings } from "./features/actions/siteSettings";
 
 function App() {
   const dispatch = useDispatch();
