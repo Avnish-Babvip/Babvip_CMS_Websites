@@ -1,43 +1,41 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { getAllHomeData } from "../actions/home";
-
+import { getPortfolioDetailBySlug } from "../actions/portfolio";
 
 const initialState = {
   isLoading: false,
-  homeData: [],
+  detailPortfolioData: {},
   errorMessage: "",
 };
 
 // ---------------------------------------------------------------------------------------
 
- const homeSlice = createSlice({
-  name: "homeSlice",
+const portfolioSlice = createSlice({
+  name: "portfolioSlice",
   initialState,
   reducers: {},
   extraReducers: (builder) => {
     builder
-   
-      .addCase(getAllHomeData.pending, (state) => {
+
+      .addCase(getPortfolioDetailBySlug.pending, (state) => {
         state.isLoading = true;
         state.errorMessage = "";
       })
-      .addCase(getAllHomeData.fulfilled, (state, action) => {
+      .addCase(getPortfolioDetailBySlug.fulfilled, (state, action) => {
         state.isLoading = false;
         state.errorMessage = "";
-        state.homeData = action.payload;
-
+        state.detailPortfolioData = action.payload.data;
       })
-      .addCase(getAllHomeData.rejected, (state, action) => {
+      .addCase(getPortfolioDetailBySlug.rejected, (state, action) => {
         state.isLoading = false;
         state.isSuccess = false;
-        state.errorMessage = action.payload || "Failed to fetch head menu.";
-      })
-
+        state.errorMessage =
+          action.payload || "Failed to fetch detail portfolio";
+      });
   },
 });
 
 // -------------------------------------------------------------------------
 
 // Action creators are generated for each case reducer function
-export const {} = homeSlice.actions;
-export default homeSlice.reducer;
+export const {} = portfolioSlice.actions;
+export default portfolioSlice.reducer;

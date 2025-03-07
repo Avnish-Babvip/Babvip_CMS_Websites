@@ -2,6 +2,11 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const Style9 = ({ data }) => {
+  const assetRoute = `${
+    import.meta.env.VITE_PRODUCTION === "true"
+      ? import.meta.env.VITE_ASSETS
+      : ""
+  }`;
   return (
     <div class="aih-portfolio-area ah-bg ptb-60">
       <div class="container">
@@ -38,7 +43,7 @@ const Style9 = ({ data }) => {
                         class="qty-portfolio__arrow-link"
                       >
                         <img
-                          src="/assets/img/icon-arrow-down.png"
+                          src={`${assetRoute}/assets/img/icon-arrow-down.png`}
                           alt="arrow down"
                           class="img-fluid"
                         />

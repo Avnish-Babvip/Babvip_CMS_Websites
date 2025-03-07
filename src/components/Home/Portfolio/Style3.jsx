@@ -6,6 +6,11 @@ import "swiper/css/pagination";
 import { Link } from "react-router-dom";
 
 const Style3 = ({ data }) => {
+  const assetRoute = `${
+    import.meta.env.VITE_PRODUCTION === "true"
+      ? import.meta.env.VITE_ASSETS
+      : ""
+  }`;
   const swiperRef = useRef(null);
 
   useEffect(() => {
@@ -32,17 +37,17 @@ const Style3 = ({ data }) => {
   return (
     <section className="dg-portfolio-section ptb-120 position-relative z-1 overflow-hidden">
       <img
-        src="/assets/img/digital-agency/pf-left-shape.png"
+        src={`${assetRoute}/assets/img/digital-agency/pf-left-shape.png`}
         alt="shape"
         class="position-absolute top-0 z--1 pf-curve left d-none d-xxl-block"
       />
       <img
-        src="/assets/img/digital-agency/pf-right-shape.png"
+        src={`${assetRoute}/assets/img/digital-agency/pf-right-shape.png`}
         alt="shape"
         class="position-absolute top-0 z--1 pf-curve right d-none d-xxl-block"
       />
       <img
-        src="/assets/img/digital-agency/pf-line.png"
+        src={`${assetRoute}/assets/img/digital-agency/pf-line.png`}
         alt="shape"
         class="position-absolute pf-line d-none d-lg-block"
       />

@@ -2,19 +2,24 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const Style6 = ({ data }) => {
+  const assetRoute = `${
+    import.meta.env.VITE_PRODUCTION === "true"
+      ? import.meta.env.VITE_ASSETS
+      : ""
+  }`;
   return (
     <div class="ca-two-portfolio-post-area pb-250 position-relative">
       <div class="container-fluid">
         <div class="position-relative z-1">
           <img
-            src="https://babvipsoftwares.com/site/assets/img/creative-agency-2/shape/pfp.png"
+            src={`${assetRoute}/assets/img/creative-agency-2/shape/pfp.png`}
             alt=""
             class="pfp-shape position-absolute z--1"
           />
           <div class="container">
             <div class="position-relative">
               <img
-                src="https://babvipsoftwares.com/site/assets/img/creative-agency-2/shape/2.png"
+                src={`${assetRoute}/assets/img/creative-agency-2/shape/2.png`}
                 alt=""
                 class="shape-two position-absolute"
               />

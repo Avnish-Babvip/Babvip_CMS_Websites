@@ -4,10 +4,11 @@ import { createBrowserRouter } from "react-router-dom";
 import DefaultLayout from "../layout/DefaultLayout/DefaultLayout";
 
 // Lazy Loading 😴
-const Home = lazy(() => import("../pages/Home"));
+const DynamicRootPage = lazy(() => import("../pages/DynamicRootPage"));
 const Blog = lazy(() => import("../pages/Blog"));
 const HelpCenter = lazy(() => import("../pages/HelpCenter"));
 const Maintenance = lazy(() => import("../pages/Maintenance"));
+const Portfolio = lazy(() => import("../pages/Portfolio"));
 
 // ---------------------------------------------------------------------------------------------------
 
@@ -18,7 +19,11 @@ export const appRouter = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <Home />,
+        element: <DynamicRootPage />,
+      },
+      {
+        path: "/:slug",
+        element: <DynamicRootPage />,
       },
       {
         path: "/blog/:slug",
@@ -27,6 +32,10 @@ export const appRouter = createBrowserRouter([
       {
         path: "/help/:slug",
         element: <HelpCenter />,
+      },
+      {
+        path: "/portfolio/:slug",
+        element: <Portfolio />,
       },
     ],
   },

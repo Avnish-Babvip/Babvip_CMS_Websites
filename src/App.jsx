@@ -80,7 +80,7 @@ function App() {
         <HelmetProvider>
           <Toaster richColors containerClassName="overflow-auto" />
 
-          {!siteSetting?.setting_data?.page_is_home === "0" ? (
+          {siteSetting?.setting_data?.page_is_home === "0" ? (
             <RouterProvider router={maintenanceAppRouter} />
           ) : (
             <RouterProvider router={appRouter} />

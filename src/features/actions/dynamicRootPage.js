@@ -3,12 +3,12 @@ import { instance } from "../../services/axiosInterceptor";
 
 
 // Fetch All Home data
-export const getAllHomeData = createAsyncThunk(
-  "/site/ishomepage",
-  async (_, { rejectWithValue }) => {
+export const getRouteDataBySlug = createAsyncThunk(
+  "/site/routeData",
+  async (slug, { rejectWithValue }) => {
     try {
         // const {data} = await instance.get(`/site/ishomepage`, {
-        const {data} = await instance.get(`/site/pagedata/test-page`, {
+        const {data} = await instance.get(`/site/pagedata/${slug}`, {
             withCredentials: false,
             headers: {
               "Content-type": "application/json",

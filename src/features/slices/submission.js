@@ -75,7 +75,8 @@ const initialState = {
       .addCase(addNewsletter.fulfilled, (state, action) => {
         state.isLoading = false;
         state.errorMessage = "";
-        toast("You have been subscribed to the newsletter.", {
+        console.log(action.payload )  
+        toast(action.payload.status == 409 ? action.payload.message : "You have been subscribed to the newsletter.", {
             description: formattedDate,
           });
 

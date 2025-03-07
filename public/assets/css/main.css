@@ -42,6 +42,15 @@
   white-space: normal; /* Ensure wrapping */
   max-height: 3em; /* Adjust based on font size */
 }
+.truncate-1 {
+  display: -webkit-box;
+  -webkit-line-clamp: 1; /* Limit to 2 lines */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: normal; /* Ensure wrapping */
+  max-height: 1.5em; /* Adjust based on font size */
+}
 /*# sourceMappingURL=scss */
 /*# sourceMappingURL=main.css.map */
 
@@ -60,6 +69,14 @@
   -ms-transform: scale(1.1); /* IE 9 */
   -webkit-transform: scale(1.1); /* Safari 3-8 */
   transform: scale(1.1); 
+}
+.zoom-card {
+  overflow: hidden; /* Ensure image doesn't go outside */
+}
+
+.zoom-card:hover .zoom-image {
+  transform: scale(1.1); /* Zoom effect */
+  transition: transform 0.3s ease-in-out;
 }
 
 .text-transparent {

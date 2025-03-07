@@ -1,10 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
-import {  getBlogsBySlug, getLatestThreeBlogs, getPaginateBlogs } from "../actions/blog";
+import { getDetailBlogBySlug, getLatestThreeBlogs, getPaginateBlogs } from "../actions/blog";
 
 
 const initialState = {
   isLoading: false,
   blogData: [],
+  detailBlogData:{},
   errorMessage: "",
 };
 
@@ -45,16 +46,16 @@ const initialState = {
         state.isSuccess = false;
         state.errorMessage = action.payload || "Failed to fetch head menu.";
       })
-      .addCase(getBlogsBySlug.pending, (state) => {
+      .addCase(getDetailBlogBySlug.pending, (state) => {
         state.isLoading = true;
         state.errorMessage = "";
       })
-      .addCase(getBlogsBySlug.fulfilled, (state, action) => {
+      .addCase(getDetailBlogBySlug.fulfilled, (state, action) => {
         state.isLoading = false;
         state.errorMessage = "";
-        state.blogData = action.payload.data; 
+        state.detailBlogData = action.payload; 
       })
-      .addCase(getBlogsBySlug.rejected, (state, action) => {
+      .addCase(getDetailBlogBySlug.rejected, (state, action) => {
         state.isLoading = false;
         state.isSuccess = false;
         state.errorMessage = action.payload || "Failed to fetch head menu.";

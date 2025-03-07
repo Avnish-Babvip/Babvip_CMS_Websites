@@ -1,12 +1,27 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 const Header = () => {
+  const assetRoute = `${
+    import.meta.env.VITE_PRODUCTION === "true"
+      ? import.meta.env.VITE_ASSETS
+      : ""
+  }`;
+
   const { headMenuData } = useSelector((state) => state.headMenu);
   const { siteSetting } = useSelector(
     (state) => state.siteSettings.siteSettingsData
   );
+
+  // Function to close offcanvas menu on link click
+  const closeOffcanvas = () => {
+    const offcanvasElement = document.getElementById("offcanvasWithBackdrop");
+    if (offcanvasElement) {
+      const bsOffcanvas = bootstrap.Offcanvas.getInstance(offcanvasElement);
+      if (bsOffcanvas) bsOffcanvas.hide();
+    }
+  };
 
   // useEffect(() => {
   //   const dropdowns = document.querySelectorAll(".nav-item.dropdown");
@@ -45,10 +60,9 @@ const Header = () => {
                 />
               )}
             </Link>
-
-            <a
+            {/* Hamburger */}
+            <div
               class="navbar-toggler position-absolute right-0 border-0"
-              href="#offcanvasWithBackdrop"
               role="button"
             >
               <i
@@ -57,7 +71,7 @@ const Header = () => {
                 data-bs-target="#offcanvasWithBackdrop"
                 aria-controls="offcanvasWithBackdrop"
               ></i>
-            </a>
+            </div>
             <div class="clearfix"></div>
             <div class="collapse navbar-collapse justify-content-center">
               <ul class="nav col-12 col-md-auto justify-content-center main-menu">
@@ -67,15 +81,19 @@ const Header = () => {
                     item?.is_horizontal &&
                     item?.children_recursive?.length > 0 ? (
                       <li key={idx} class="nav-item dropdown">
-                        <a
+                        <Link
                           class="nav-link dropdown-toggle "
-                          href="#"
+                          to={
+                            item?.menu_slug ||
+                            item?.pages?.page_data?.page_slug ||
+                            "#"
+                          }
                           role="button"
-                          data-bs-toggle="dropdown"
+                          // data-bs-toggle="dropdown"
                           aria-expanded="false"
                         >
                           {item?.title}
-                        </a>
+                        </Link>
                         <div class="dropdown-menu border-0 rounded-custom shadow py-0  homepage-list-wrapper ">
                           <div class="dropdown-grid  rounded-custom  homepage-dropdown">
                             {/* Custom Image Mega Header Layout  */}
@@ -83,16 +101,24 @@ const Header = () => {
                               <div className="row g-0">
                                 {item?.children_recursive?.map(
                                   (item2, idx2) => (
-                                    <a
+                                    <Link
+                                      to={
+                                        item2?.menu_slug ||
+                                        item2?.pages?.page_data?.page_slug ||
+                                        "#"
+                                      }
                                       key={idx2}
-                                      className="col-md-4  "
-                                      style={{ cursor: "pointer" }}
+                                      className="col-md-4 "
                                     >
                                       <div
-                                        className="card h-100 border-0 rounded-3 "
-                                        style={{ width: "250px" }}
+                                        className="card h-100 border-0 rounded-3 zoom-card"
+                                        style={{
+                                          width: "250px",
+                                          cursor: "pointer",
+                                          overflow: "hidden", // Prevents image overflow
+                                        }}
                                       >
-                                        <div className="card-body ">
+                                        <div className="card-body">
                                           <div className="mb-3">
                                             <img
                                               src={
@@ -101,16 +127,16 @@ const Header = () => {
                                                       import.meta.env
                                                         .VITE_REACT_APP_IMAGE_PATH
                                                     }/${item2?.menu_image}`
-                                                  : "/placeholder.webp"
+                                                  : `${assetRoute}/placeholder.webp`
                                               }
                                               alt={item2?.title}
                                               width={220}
                                               height={150}
-                                              className=" rounded-3 zoom"
+                                              className="rounded-3 zoom-image"
                                             />
                                           </div>
                                           <div>
-                                            <h5 className=" card-title d-flex fs-6 gap-2 ">
+                                            <h5 className="card-title d-flex fs-6 gap-2">
                                               {item2?.title} <span>›</span>
                                             </h5>
                                             <p className="card-text text-muted small truncate-2 font-weight-semibold text-capitalize">
@@ -119,7 +145,7 @@ const Header = () => {
                                           </div>
                                         </div>
                                       </div>
-                                    </a>
+                                    </Link>
                                   )
                                 )}
                               </div>
@@ -130,15 +156,19 @@ const Header = () => {
                     ) : !item?.is_horizontal &&
                       item?.children_recursive?.length > 0 ? (
                       <li key={idx} class="nav-item dropdown">
-                        <a
+                        <Link
                           class="nav-link dropdown-toggle  "
-                          href="#"
+                          to={
+                            item?.menu_slug ||
+                            item?.pages?.page_data?.page_slug ||
+                            "#"
+                          }
                           role="button"
-                          data-bs-toggle="dropdown"
+                          // data-bs-toggle="dropdown"
                           aria-expanded="false"
                         >
                           {item?.title}
-                        </a>
+                        </Link>
                         <div class="dropdown-menu border-0 rounded-custom shadow py-0  homepage-list-wrapper">
                           <div class="dropdown-grid rounded-custom  homepage-dropdown">
                             {/* Custom Logo Mega Header Layout  */}
@@ -146,7 +176,12 @@ const Header = () => {
                               <div className="row g-0">
                                 {item?.children_recursive?.map(
                                   (item2, idx2) => (
-                                    <div
+                                    <Link
+                                      to={
+                                        item2?.menu_slug ||
+                                        item2?.pages?.page_data?.page_slug ||
+                                        "#"
+                                      }
                                       key={idx2}
                                       className="col-md-6 "
                                       style={{ cursor: "pointer" }}
@@ -166,7 +201,7 @@ const Header = () => {
                                                       import.meta.env
                                                         .VITE_REACT_APP_IMAGE_PATH
                                                     }/${item2?.menu_image}`
-                                                  : "/placeholder.webp"
+                                                  : `${assetRoute}/placeholder.webp`
                                               }
                                               alt="Free tier illustration"
                                               width={70}
@@ -179,7 +214,8 @@ const Header = () => {
                                               className="card-title d-flex gap-2 fs-6  custom-hover-color"
                                               style={{ color: "#175cff" }}
                                             >
-                                              {item2?.title} <span>›</span>
+                                              {item2?.title}
+                                              <span>›</span>
                                             </h5>
                                             {item2.menu_description && (
                                               <p className="card-text truncate-2 text-muted text-capitalize small font-weight-semibold">
@@ -189,7 +225,7 @@ const Header = () => {
                                           </div>
                                         </div>
                                       </div>
-                                    </div>
+                                    </Link>
                                   )
                                 )}
                               </div>
@@ -199,9 +235,16 @@ const Header = () => {
                       </li>
                     ) : (
                       <li key={idx}>
-                        <a href="pricing.html" class="nav-link">
+                        <Link
+                          to={
+                            item?.menu_slug ||
+                            item?.pages?.page_data?.page_slug ||
+                            "#"
+                          }
+                          class="nav-link"
+                        >
                           {item?.title}
-                        </a>
+                        </Link>
                       </li>
                     )
                   )}
@@ -222,16 +265,20 @@ const Header = () => {
           id="offcanvasWithBackdrop"
         >
           <div class="offcanvas-header d-flex align-items-center mt-4">
-            <a
-              href="index.html"
+            <Link
+              to={"/"}
               class="d-flex align-items-center mb-md-0 text-decoration-none"
             >
-              <img
-                src="assets/img/logo-color.png"
-                alt="logo"
-                class="img-fluid ps-2"
-              />
-            </a>
+              {siteSetting?.setting_data?.site_logo && (
+                <img
+                  src={`${import.meta.env.VITE_REACT_APP_IMAGE_PATH}/${
+                    siteSetting?.setting_data?.site_logo
+                  }`}
+                  alt={siteSetting?.setting_data?.site_logo_alt}
+                  class="img-fluid ps-2"
+                />
+              )}
+            </Link>
             <button
               type="button"
               class="close-btn text-danger"
@@ -248,24 +295,33 @@ const Header = () => {
                 headMenuData?.map((item, idx) =>
                   item?.children_recursive?.length > 0 ? (
                     <li key={idx} class="nav-item dropdown">
-                      <a
+                      <Link
                         class="nav-link dropdown-toggle"
-                        href="#"
+                        to={
+                          item?.menu_slug ||
+                          item?.pages?.page_data?.page_slug ||
+                          "#"
+                        }
                         role="button"
                         data-bs-toggle="dropdown"
                         aria-expanded="false"
                       >
                         {item?.title}
-                      </a>
+                      </Link>
                       <div class="dropdown-menu border-0 rounded-custom shadow py-0 bg-white homepage-list-wrapper">
-                        {item?.children_recursive?.map((item2, idx2) => (
-                          <div
-                            key={idx2}
-                            class="dropdown-grid rounded-custom width-full homepage-dropdown"
-                          >
-                            <div class="dropdown-grid-item bg-white radius-left-side">
-                              {/* <h6 class="drop-heading">Different Home</h6> */}
-                              <a href="index.html" class="dropdown-link">
+                        <div class="dropdown-grid rounded-custom width-full homepage-dropdown">
+                          <div class="dropdown-grid-item bg-white radius-left-side">
+                            {item?.children_recursive?.map((item2, idx2) => (
+                              <Link
+                                to={
+                                  item2?.menu_slug ||
+                                  item2?.pages?.page_data?.page_slug ||
+                                  "#"
+                                }
+                                onClick={closeOffcanvas} // Close offcanvas on click
+                                key={idx2}
+                                class="dropdown-link"
+                              >
                                 <span class="demo-list bg-primary rounded text-white fw-bold">
                                   {idx2 + 1}
                                 </span>
@@ -273,21 +329,29 @@ const Header = () => {
                                   <div class="drop-title text-capitalize">
                                     {item2?.title}
                                   </div>
-                                  <p className="text-capitalize">
+                                  <p className="text-capitalize truncate-1">
                                     {item2?.menu_description}{" "}
                                   </p>
                                 </div>
-                              </a>
-                            </div>
+                              </Link>
+                            ))}
                           </div>
-                        ))}
+                        </div>
                       </div>
                     </li>
                   ) : (
                     <li key={idx}>
-                      <a href="services.html" class="nav-link text-capitalize">
+                      <Link
+                        to={
+                          item?.menu_slug ||
+                          item?.pages?.page_data?.page_slug ||
+                          "#"
+                        }
+                        class=" nav-link text-capitalize"
+                        onClick={closeOffcanvas} // Close offcanvas on click
+                      >
                         {item?.title}
-                      </a>
+                      </Link>
                     </li>
                   )
                 )}

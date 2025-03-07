@@ -4,6 +4,8 @@ import { addNewsletter } from "../../features/actions/submission";
 import { useForm } from "react-hook-form";
 import ButtonLoader from "../../components/Loader/ButtonLoader";
 import { toast } from "sonner";
+import { Link } from "react-router-dom";
+import SubscribeForm from "../../components/SubscribeForm/SubscribeForm";
 
 const Footer = () => {
   const { footerMenuData } = useSelector((state) => state.footerMenu);
@@ -16,25 +18,6 @@ const Footer = () => {
 
   const theme = footerSetting?.setting_data?.footer_type || "light";
 
-  const dispatch = useDispatch();
-  const { isLoading } = useSelector((state) => state.submission);
-  const {
-    register,
-    handleSubmit,
-    reset,
-    formState: { errors },
-  } = useForm();
-
-  const validateEmail = (email) => {
-    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return regex.test(email) || "Please enter a valid email address";
-  };
-
-  const onSubmit = (data2) => {
-    dispatch(addNewsletter(data2));
-    reset();
-  };
-
   return (
     <footer
       class="footer-section"
@@ -46,42 +29,23 @@ const Footer = () => {
           <div class="row justify-content-between">
             <div class="col-md-8 col-lg-4 mb-md-4 mb-lg-0">
               <div class="footer-single-col">
-                <div class="footer-single-col mb-4">
-                  {footerSetting?.setting_data?.footer_logo && (
-                    <img
-                      src={`${import.meta.env.VITE_REACT_APP_IMAGE_PATH}/${
-                        footerSetting?.setting_data?.footer_logo
-                      }`}
-                      alt={footerSetting?.setting_data?.footer_logo_alt}
-                      class="img-fluid"
-                    />
-                  )}
-                </div>
+                <Link to={"/"}>
+                  <div class="footer-single-col mb-4">
+                    {footerSetting?.setting_data?.footer_logo && (
+                      <img
+                        src={`${import.meta.env.VITE_REACT_APP_IMAGE_PATH}/${
+                          footerSetting?.setting_data?.footer_logo
+                        }`}
+                        alt={footerSetting?.setting_data?.footer_logo_alt}
+                        class="img-fluid"
+                      />
+                    )}
+                  </div>
+                </Link>
                 <p>{footerSetting?.setting_data?.footer_description}</p>
 
-                <form
-                  onSubmit={handleSubmit(onSubmit)}
-                  class="newsletter-form position-relative d-block d-lg-flex d-md-flex"
-                >
-                  <input
-                    {...register("email", {
-                      required: "Email is required",
-                      validate: validateEmail,
-                    })}
-                    type="text"
-                    class="input-newsletter form-control me-2"
-                    placeholder="Enter your email"
-                    name="email"
-                    autocomplete="off"
-                  />
-                  {errors.email && toast.error(errors.email.message) && ""}
-                  <button
-                    disabled={isLoading}
-                    className="btn btn-primary rounded mt-3 mt-lg-0 mt-md-0"
-                  >
-                    {isLoading ? <ButtonLoader /> : "Subscribe"}
-                  </button>
-                </form>
+                <SubscribeForm buttonText="Subscribe" />
+
                 <div class="ratting-wrap mt-4">
                   <h6 class="mb-0">
                     {footerSetting?.setting_data?.rating_title}
@@ -110,9 +74,15 @@ const Footer = () => {
                 {Array.isArray(footerMenuData) &&
                   footerMenuData?.length > 0 &&
                   footerMenuData?.map((item, idx) => (
-                    <div
+                    <Link
+                      to={
+                        item?.menu_slug ||
+                        item?.pages?.page_data?.page_slug ||
+                        "#"
+                      }
                       key={idx}
                       class=" col-md-4 col-lg-4 mt-4 mt-md-0 mt-lg-0 mb-md-5 "
+                      style={{ cursor: "pointer" }}
                     >
                       <div class="footer-single-col">
                         <h3>{item?.title}</h3>
@@ -120,17 +90,21 @@ const Footer = () => {
                           {item?.children_recursive.length > 0 &&
                             item?.children_recursive?.map((item2, idx2) => (
                               <li key={idx2}>
-                                <a
-                                  href="index.html"
+                                <Link
+                                  to={
+                                    item2?.menu_slug ||
+                                    item2?.pages?.page_data?.page_slug ||
+                                    "#"
+                                  }
                                   class="text-decoration-none"
                                 >
                                   {item2?.title}
-                                </a>
+                                </Link>
                               </li>
                             ))}
                         </ul>
                       </div>
-                    </div>
+                    </Link>
                   ))}
               </div>
             </div>
@@ -160,12 +134,18 @@ const Footer = () => {
                     </a>
                   </li>
                   <li class="list-inline-item">
-                    <a href={siteSetting?.setting_data?.instagram_page_url}>
+                    <a
+                      href={siteSetting?.setting_data?.instagram_page_url}
+                      target="_blank"
+                    >
                       <i class="fab fa-instagram"></i>
                     </a>
                   </li>
                   <li class="list-inline-item">
-                    <a href={siteSetting?.setting_data?.linkdin_page_url}>
+                    <a
+                      href={siteSetting?.setting_data?.linkdin_page_url}
+                      target="_blank"
+                    >
                       <i class="fab fa-linkedin"></i>
                     </a>
                   </li>

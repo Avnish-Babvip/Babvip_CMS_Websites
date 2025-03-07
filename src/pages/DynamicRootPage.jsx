@@ -1,7 +1,7 @@
 import React, { lazy, Suspense, useEffect } from "react";
 import { Helmet } from "react-helmet-async";
 import { useDispatch, useSelector } from "react-redux";
-import { getAllHomeData } from "../features/actions/home";
+import { getRouteDataBySlug } from "../features/actions/dynamicRootPage";
 import HeroSection from "../components/Home/HeroSection/HeroSection";
 import Testimonial from "../components/Home/Testimonial/Testimonial";
 import CallToAction from "../components/Home/CallToAction/CallToAction";
@@ -14,17 +14,21 @@ import Features from "../components/Home/Features/Features";
 import IntegrationStyle from "../components/Home/IntegrationStyle/IntegrationStyle";
 import ContactUs from "../components/Home/ContactUs/ContactUs";
 import Portfolio from "../components/Home/Portfolio/Portfolio";
+import { useParams } from "react-router-dom";
 
-// Lazy Loading 😴
+// Lazy Loading 😴npm
 const HelpCenter = lazy(() =>
   import("../components/Home/HelpCenter/HelpCenter")
 );
 const BlogStyle = lazy(() => import("../components/Home/BlogStyle/BlogStyle"));
 const OurTeam = lazy(() => import("../components/Home/OurTeam/OurTeam"));
 
-const Home = () => {
+const DynamicRootPage = () => {
+  const { slug } = useParams();
   const dispatch = useDispatch();
-  const { page_data, data } = useSelector((state) => state.home.homeData);
+  const { page_data, data } = useSelector(
+    (state) => state.dynamicRootPage.routeData
+  );
 
   const componentMap = {
     Hero: HeroSection,
@@ -45,8 +49,8 @@ const Home = () => {
   };
 
   useEffect(() => {
-    dispatch(getAllHomeData());
-  }, []);
+    dispatch(getRouteDataBySlug(slug || "home"));
+  }, [slug]);
 
   console.log(data);
 
@@ -76,4 +80,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default DynamicRootPage;

@@ -6,21 +6,23 @@ import storage from "redux-persist/lib/storage";
 import headMenu from "./slices/headMenu";
 import footerMenu from "./slices/footerMenu";
 import siteSettings from "./slices/siteSettings";
-import home from "./slices/home";
 import blog from "./slices/blog";
 import helpCenter from "./slices/helpCenter";
 import team from "./slices/team"
 import submission from "./slices/submission"
+import dynamicRootPage from "./slices/dynamicRootPage"
+import portfolio from "./slices/portfolio"
 
 const rootReducer = combineReducers({
   headMenu ,
   footerMenu,
   siteSettings,
-  home,
+  dynamicRootPage,
   blog,
   helpCenter,
   team,
-  submission
+  submission,
+  portfolio
   });
 
   

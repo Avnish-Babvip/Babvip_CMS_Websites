@@ -41,7 +41,7 @@ export const getPaginateBlogs = createAsyncThunk(
 
 
 // Fetch Blogs by slug
-export const getBlogsBySlug = createAsyncThunk(
+export const getDetailBlogBySlug = createAsyncThunk(
   "/site/blogdetails/",
   async (slug, { rejectWithValue }) => {
     try {
