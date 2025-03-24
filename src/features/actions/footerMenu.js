@@ -1,5 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { instance } from "../../services/axiosInterceptor";
+import { headers } from "./headMenu";
 
 
 // Fetch All FooterMenu
@@ -9,9 +10,7 @@ export const getAllFooterMenu = createAsyncThunk(
     try {
         const {data} = await instance.get(`/site/footermenu`, {
             withCredentials: false,
-            headers: {
-              "Content-type": "application/json",
-            },
+            headers: headers
           });
       return data;
     } catch (error) {

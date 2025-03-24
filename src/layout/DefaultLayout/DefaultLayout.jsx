@@ -1,8 +1,8 @@
 // ----------------------------------Imports--------------------------------------
-import React, { lazy, useEffect } from "react";
+import React, { useEffect } from "react";
 import { Outlet, useLocation } from "react-router-dom";
 import Header from "../Header/Header";
-const Footer = lazy(() => import("../Footer/Footer"));
+import Footer from "../Footer/Footer";
 import ErrorBoundary from "../../components/ErrorBoundary/ErrorBoundary";
 
 // --------------------------------------------------------------------------------
@@ -16,11 +16,11 @@ const DefaultLayout = () => {
 
   return (
     <div>
-      {/* <ErrorBoundary> */}
-      <Header />
-      <Outlet />
-      <Footer />
-      {/* </ErrorBoundary> */}
+      <ErrorBoundary>
+        <Header />
+        <Outlet />
+        <Footer />
+      </ErrorBoundary>
     </div>
   );
 };

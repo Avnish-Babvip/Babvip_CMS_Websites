@@ -88,8 +88,25 @@
 }
 
 
-.navbar .dropdown:hover .dropdown-menu {
+ /* .dropdown:hover .dropdown-menu {
   display: block !important;
   visibility: visible;
   opacity: 1;
+} */
+
+
+
+.ptb-120{
+  padding: 80px 0px !important;
+}
+.ptb-custom-120{
+  padding: 120px 0px !important;
+}
+
+.ptb-60{
+  padding: 80px 0px !important;
+}
+
+.ptb-80{
+  padding: 80px 0px !important;
 }

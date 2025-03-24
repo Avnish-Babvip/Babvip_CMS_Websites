@@ -1,10 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
-import {  getHelpCenter} from "../actions/helpCenter";
+import {  getHelpCenter, getHelpCenterDetailBySlug} from "../actions/helpCenter";
 
 
 const initialState = {
   isLoading: false,
   helpCenterData: [],
+  helpDetailData:{},
   errorMessage: "",
 };
 
@@ -27,6 +28,20 @@ const initialState = {
         state.helpCenterData = action.payload.data; 
       })
       .addCase(getHelpCenter.rejected, (state, action) => {
+        state.isLoading = false;
+        state.isSuccess = false;
+        state.errorMessage = action.payload || "Failed to fetch help center";
+      })
+      .addCase(getHelpCenterDetailBySlug.pending, (state) => {
+        state.isLoading = true;
+        state.errorMessage = "";
+      })
+      .addCase(getHelpCenterDetailBySlug.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.errorMessage = "";
+        state.helpDetailData = action.payload; 
+      })
+      .addCase(getHelpCenterDetailBySlug.rejected, (state, action) => {
         state.isLoading = false;
         state.isSuccess = false;
         state.errorMessage = action.payload || "Failed to fetch help center";

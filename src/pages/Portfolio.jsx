@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
 import { getPortfolioDetailBySlug } from "../features/actions/portfolio";
@@ -14,6 +14,7 @@ const Portfolio = () => {
   const { isLoading, step_data } = useSelector(
     (state) => state.portfolio.detailPortfolioData
   );
+  const [imageLoaded, setImageLoaded] = useState(false);
 
   useEffect(() => {
     dispatch(getPortfolioDetailBySlug(slug));
@@ -21,7 +22,9 @@ const Portfolio = () => {
 
   console.log(step_data);
 
-  return (
+  return isLoading ? (
+    <Loader />
+  ) : (
     <>
       <section
         class="page-header position-relative overflow-hidden ptb-120 bg-dark"
@@ -55,11 +58,23 @@ const Portfolio = () => {
         <div class="container">
           <div class="row justify-content-center">
             <div class="col-md-9 portfolio-feature-img pb-20">
+              {!imageLoaded && (
+                <div
+                  className="d-flex justify-content-center align-items-center"
+                  style={{ height: "300px" }}
+                >
+                  <div className="spinner-border text-primary" role="status">
+                    <span className="visually-hidden">Loading...</span>
+                  </div>
+                </div>
+              )}
               <img
                 src={`${import.meta.env.VITE_REACT_APP_IMAGE_PATH}/${
                   step_data?.step_image
                 }`}
                 alt={step_data?.step_image_alt_tag}
+                className={`img-fluid ${imageLoaded ? "" : "d-none"}`}
+                onLoad={() => setImageLoaded(true)}
               />
             </div>
             <div class="col-lg-3">

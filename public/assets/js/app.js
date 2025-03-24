@@ -346,28 +346,28 @@ jQuery(function ($) {
   });
 
   //digital marketing brand logo logo
-  var swiper = new Swiper('.digi-logo-slider', {
-    slidesPerView: 1,
-    spaceBetween: 24,
-    speed: 1000,
-    autoplay: {
-      delay: 2500
-    },
-    slidesPerGroup: 1,
-    loop: true,
-    breakpoints: {
-      320: {
-        slidesPerView: 2,
-        spaceBetween: 10
-      },
-      768: {
-        slidesPerView: 3
-      },
-      992: {
-        slidesPerView: 6
-      }
-    }
-  });
+  // var swiper = new Swiper('.digi-logo-slider', {
+  //   slidesPerView: 1,
+  //   spaceBetween: 24,
+  //   speed: 1000,
+  //   autoplay: {
+  //     delay: 2500
+  //   },
+  //   slidesPerGroup: 1,
+  //   loop: true,
+  //   breakpoints: {
+  //     320: {
+  //       slidesPerView: 2,
+  //       spaceBetween: 10
+  //     },
+  //     768: {
+  //       slidesPerView: 3
+  //     },
+  //     992: {
+  //       slidesPerView: 6
+  //     }
+  //   }
+  // });
 
   //digital marketing testimonial
   var swiper = new Swiper('.digi-testimonial-wrapper', {
@@ -500,7 +500,7 @@ jQuery(function ($) {
     }
   });
 
-  //insurance gallery slider
+  // //insurance gallery slider
   // var swiper = new Swiper('.ins-gallery-slider', {
   //   slidesPerView: 3,
   //   loop: true,
@@ -809,27 +809,27 @@ jQuery(function ($) {
       }
     }
   });
-  var aiartPostSlider = new Swiper('.aiart-post-slider', {
-    autoplay: true,
-    loop: true,
-    speed: 700,
-    spaceBetween: 24,
-    navigation: {
-      nextEl: '.aiart-swiper-button-next',
-      prevEl: '.aiart-swiper-button-prev'
-    },
-    breakpoints: {
-      0: {
-        slidesPerView: 1
-      },
-      768: {
-        slidesPerView: 2
-      },
-      1200: {
-        slidesPerView: 3
-      }
-    }
-  });
+  // var aiartPostSlider = new Swiper('.aiart-post-slider', {
+  //   autoplay: true,
+  //   loop: true,
+  //   speed: 700,
+  //   spaceBetween: 24,
+  //   navigation: {
+  //     nextEl: '.aiart-swiper-button-next',
+  //     prevEl: '.aiart-swiper-button-prev'
+  //   },
+  //   breakpoints: {
+  //     0: {
+  //       slidesPerView: 1
+  //     },
+  //     768: {
+  //       slidesPerView: 2
+  //     },
+  //     1200: {
+  //       slidesPerView: 3
+  //     }
+  //   }
+  // });
   var aihTestimonial = new Swiper('.aih-testimonial', {
     autoplay: true,
     loop: true,

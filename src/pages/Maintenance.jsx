@@ -6,6 +6,11 @@ import ButtonLoader from "../components/Loader/ButtonLoader";
 import { Link } from "react-router-dom";
 
 const Maintenance = () => {
+  const assetRoute = `${
+    import.meta.env.VITE_PRODUCTION === "true"
+      ? import.meta.env.VITE_ASSETS
+      : ""
+  }`;
   const dispatch = useDispatch();
   const { isLoading } = useSelector((state) => state.submission);
   const { siteSetting, footerSetting } = useSelector(
@@ -51,7 +56,7 @@ const Maintenance = () => {
       <section
         class="contact-us-form pt-2 pb-80"
         style={{
-          background: `url('assets/img/shape/contact-us-bg.svg')no-repeat center bottom`,
+          background: `url('${assetRoute}/assets/img/shape/contact-us-bg.svg')no-repeat center bottom`,
         }}
       >
         <div class="bg-primary text-white mb-5">

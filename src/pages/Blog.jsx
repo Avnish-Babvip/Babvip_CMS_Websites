@@ -24,7 +24,8 @@ const ViewBlog = () => {
   const { data, newsSetting } = useSelector(
     (state) => state.blog.detailBlogData
   );
-  const { blogData } = useSelector((state) => state.blog);
+
+  const { latestBlogData } = useSelector((state) => state.blog);
 
   const formatDate = (dateString) => {
     const date = new Date(dateString);
@@ -199,6 +200,7 @@ const ViewBlog = () => {
             <div class="col-lg-7 col-md-12">
               <div class="text-start text-lg-end mb-4 mb-lg-0 mb-xl-0">
                 <Link
+                  target="_blank"
                   to={newsSetting?.setting_data?.section2_button_url}
                   class="btn btn-primary"
                 >
@@ -208,8 +210,8 @@ const ViewBlog = () => {
             </div>
           </div>
           <div class="row">
-            {Array.isArray(blogData) &&
-              blogData?.map((item, idx) => (
+            {Array.isArray(latestBlogData) &&
+              latestBlogData?.map((item, idx) => (
                 <div key={idx} class="col-lg-4 col-md-6">
                   <div class="single-article rounded-custom my-3">
                     <Link to={`/blog/${item?.blog_slug}`}>

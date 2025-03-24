@@ -1,18 +1,16 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { instance } from "../../services/axiosInterceptor";
+import { headers } from "./headMenu";
 
 
-// Fetch All Home data
+// Fetch All route data
 export const getRouteDataBySlug = createAsyncThunk(
   "/site/routeData",
   async (slug, { rejectWithValue }) => {
     try {
-        // const {data} = await instance.get(`/site/ishomepage`, {
         const {data} = await instance.get(`/site/pagedata/${slug}`, {
             withCredentials: false,
-            headers: {
-              "Content-type": "application/json",
-            },
+            headers: headers
           });
       return data;
     } catch (error) {

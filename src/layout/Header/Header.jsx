@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
@@ -22,6 +22,8 @@ const Header = () => {
       if (bsOffcanvas) bsOffcanvas.hide();
     }
   };
+  const [activeDropdown, setActiveDropdown] = useState(null);
+  const [activeDropdown2, setActiveDropdown2] = useState(null);
 
   // useEffect(() => {
   //   const dropdowns = document.querySelectorAll(".nav-item.dropdown");
@@ -80,24 +82,30 @@ const Header = () => {
                   headMenuData?.map((item, idx) =>
                     item?.is_horizontal &&
                     item?.children_recursive?.length > 0 ? (
-                      <li key={idx} class="nav-item dropdown">
+                      <li
+                        key={idx}
+                        className="nav-item dropdown"
+                        onMouseEnter={() => setActiveDropdown(idx)}
+                        onMouseLeave={() => setActiveDropdown(null)}
+                      >
                         <Link
-                          class="nav-link dropdown-toggle "
+                          className="nav-link dropdown-toggle"
                           to={
                             item?.menu_slug ||
                             item?.pages?.page_data?.page_slug ||
                             "#"
                           }
-                          role="button"
-                          // data-bs-toggle="dropdown"
-                          aria-expanded="false"
+                          onClick={() => setActiveDropdown(null)}
                         >
                           {item?.title}
                         </Link>
-                        <div class="dropdown-menu border-0 rounded-custom shadow py-0  homepage-list-wrapper ">
-                          <div class="dropdown-grid  rounded-custom  homepage-dropdown">
-                            {/* Custom Image Mega Header Layout  */}
-                            <div className="" style={{ width: "755px" }}>
+                        <div
+                          className={`dropdown-menu border-0 rounded-custom shadow py-0 homepage-list-wrapper ${
+                            activeDropdown === idx ? "show" : ""
+                          }`}
+                        >
+                          <div className="dropdown-grid rounded-custom homepage-dropdown">
+                            <div style={{ width: "810px" }}>
                               <div className="row g-0">
                                 {item?.children_recursive?.map(
                                   (item2, idx2) => (
@@ -108,14 +116,15 @@ const Header = () => {
                                         "#"
                                       }
                                       key={idx2}
-                                      className="col-md-4 "
+                                      className="col-md-4"
+                                      onClick={() => setActiveDropdown(null)} // Close dropdown when clicked
                                     >
                                       <div
                                         className="card h-100 border-0 rounded-3 zoom-card"
                                         style={{
-                                          width: "250px",
+                                          width: "270px",
                                           cursor: "pointer",
-                                          overflow: "hidden", // Prevents image overflow
+                                          overflow: "hidden",
                                         }}
                                       >
                                         <div className="card-body">
@@ -155,24 +164,32 @@ const Header = () => {
                       </li>
                     ) : !item?.is_horizontal &&
                       item?.children_recursive?.length > 0 ? (
-                      <li key={idx} class="nav-item dropdown">
+                      <li
+                        key={idx}
+                        class="nav-item dropdown"
+                        onMouseEnter={() => setActiveDropdown2(idx)}
+                        onMouseLeave={() => setActiveDropdown2(null)}
+                      >
                         <Link
                           class="nav-link dropdown-toggle  "
+                          onClick={() => setActiveDropdown2(null)}
                           to={
                             item?.menu_slug ||
                             item?.pages?.page_data?.page_slug ||
                             "#"
                           }
-                          role="button"
                           // data-bs-toggle="dropdown"
-                          aria-expanded="false"
                         >
                           {item?.title}
                         </Link>
-                        <div class="dropdown-menu border-0 rounded-custom shadow py-0  homepage-list-wrapper">
+                        <div
+                          class={`dropdown-menu border-0 rounded-custom shadow py-0  homepage-list-wrapper ${
+                            activeDropdown2 === idx ? "show" : ""
+                          }`}
+                        >
                           <div class="dropdown-grid rounded-custom  homepage-dropdown">
                             {/* Custom Logo Mega Header Layout  */}
-                            <div className="" style={{ width: "800px" }}>
+                            <div className="" style={{ width: "900px" }}>
                               <div className="row g-0">
                                 {item?.children_recursive?.map(
                                   (item2, idx2) => (
@@ -184,11 +201,12 @@ const Header = () => {
                                       }
                                       key={idx2}
                                       className="col-md-6 "
+                                      onClick={() => setActiveDropdown2(null)}
                                       style={{ cursor: "pointer" }}
                                     >
                                       <div
                                         className="card h-100 border-0 rounded-4 dropdownCardHover "
-                                        style={{ width: "400px" }}
+                                        style={{ width: "450px" }}
                                       >
                                         <div className="card-body d-flex align-items-center gap-3  ">
                                           {" "}
@@ -322,9 +340,19 @@ const Header = () => {
                                 key={idx2}
                                 class="dropdown-link"
                               >
-                                <span class="demo-list bg-primary rounded text-white fw-bold">
-                                  {idx2 + 1}
-                                </span>
+                                <img
+                                  src={
+                                    item2?.menu_image
+                                      ? `${
+                                          import.meta.env
+                                            .VITE_REACT_APP_IMAGE_PATH
+                                        }/${item2?.menu_image}`
+                                      : `${assetRoute}/placeholder.webp`
+                                  }
+                                  alt={item2?.title}
+                                  class="demo-list rounded"
+                                />
+
                                 <div class="dropdown-info">
                                   <div class="drop-title text-capitalize">
                                     {item2?.title}

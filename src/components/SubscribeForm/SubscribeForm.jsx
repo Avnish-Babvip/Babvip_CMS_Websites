@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { addNewsletter } from "../../features/actions/submission";
 import { useForm } from "react-hook-form";
 import ButtonLoader from "../Loader/ButtonLoader";
+import { toast } from "sonner";
 
 const SubscribeForm = ({ buttonText }) => {
   const dispatch = useDispatch();

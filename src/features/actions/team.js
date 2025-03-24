@@ -1,5 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { instance } from "../../services/axiosInterceptor";
+import { headers } from "./headMenu";
 
 
 export const getTeam = createAsyncThunk(
@@ -8,9 +9,7 @@ export const getTeam = createAsyncThunk(
       try {
           const {data} = await instance.get(`/site/latestteam`, {
               withCredentials: false,
-              headers: {
-                "Content-type": "application/json",
-              },
+              headers: headers
             });
         return data;
       } catch (error) {

@@ -1,6 +1,10 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { instance } from "../../services/axiosInterceptor";
 
+export const headers = {
+  "Content-type": "application/json",
+  Authorization: `Bearer ${import.meta.env.VITE_BEARER_TOKEN}`,
+}
 
 // Fetch All HeadMenu
 export const getAllHeadMenu = createAsyncThunk(
@@ -9,9 +13,7 @@ export const getAllHeadMenu = createAsyncThunk(
     try {
         const {data} = await instance.get(`/site/headmenu`, {
             withCredentials: false,
-            headers: {
-              "Content-type": "application/json",
-            },
+            headers
           });
       return data;
     } catch (error) {

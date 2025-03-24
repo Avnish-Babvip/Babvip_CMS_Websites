@@ -5,6 +5,7 @@ import { getDetailBlogBySlug, getLatestThreeBlogs, getPaginateBlogs } from "../a
 const initialState = {
   isLoading: false,
   blogData: [],
+  latestBlogData: [],
   detailBlogData:{},
   errorMessage: "",
 };
@@ -25,12 +26,12 @@ const initialState = {
       .addCase(getLatestThreeBlogs.fulfilled, (state, action) => {
         state.isLoading = false;
         state.errorMessage = "";
-        state.blogData = action.payload.data; 
+        state.latestBlogData = action.payload.data; 
       })
       .addCase(getLatestThreeBlogs.rejected, (state, action) => {
         state.isLoading = false;
         state.isSuccess = false;
-        state.errorMessage = action.payload || "Failed to fetch head menu.";
+        state.errorMessage = action.payload || "Failed to fetch blog data.";
       })
       .addCase(getPaginateBlogs.pending, (state) => {
         state.isLoading = true;
@@ -44,7 +45,7 @@ const initialState = {
       .addCase(getPaginateBlogs.rejected, (state, action) => {
         state.isLoading = false;
         state.isSuccess = false;
-        state.errorMessage = action.payload || "Failed to fetch head menu.";
+        state.errorMessage = action.payload || "Failed to fetch blog data.";
       })
       .addCase(getDetailBlogBySlug.pending, (state) => {
         state.isLoading = true;

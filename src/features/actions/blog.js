@@ -1,6 +1,9 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { instance } from "../../services/axiosInterceptor";
 import axios from "axios";
+import { headers } from "./headMenu";
+
+
 
 
 // Fetch three Blogs
@@ -10,9 +13,7 @@ export const getLatestThreeBlogs = createAsyncThunk(
     try {
         const {data} = await instance.get(`/site/latestthreeblogs`, {
             withCredentials: false,
-            headers: {
-              "Content-type": "application/json",
-            },
+            headers: headers
           });
       return data;
     } catch (error) {
@@ -28,9 +29,7 @@ export const getPaginateBlogs = createAsyncThunk(
     try {
         const {data} = await axios.get(url, {
             withCredentials: false,
-            headers: {
-              "Content-type": "application/json",
-            },
+            headers: headers
           });
       return data;
     } catch (error) {
@@ -47,9 +46,7 @@ export const getDetailBlogBySlug = createAsyncThunk(
     try {
         const {data} = await instance.get(`/site/blogdetails/${slug}`, {
             withCredentials: false,
-            headers: {
-              "Content-type": "application/json",
-            },
+            headers: headers
           });
       return data;
     } catch (error) {
