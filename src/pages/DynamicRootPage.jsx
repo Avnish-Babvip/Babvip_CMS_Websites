@@ -22,8 +22,7 @@ import HelpCenter from "../components/Styles/HelpCenter/HelpCenter";
 import BlogStyle from "../components/Styles/BlogStyle/BlogStyle";
 import PrivacyAndTerms from "../components/Styles/PrivacyAndTerms/PrivacyAndTerms";
 import Style42 from "../components/Styles/Features/Style42";
-
-
+import Style43 from "../components/Styles/Features/Style43";
 
 const DynamicRootPage = () => {
   const { slug } = useParams();
@@ -143,7 +142,7 @@ const DynamicRootPage = () => {
         // <p className="text-center text-primary fw-bold fs-5 mt-5 mx-5">
         //   Sorry, no content available on this page right now.
         // </p>
-        <Style42/>
+        <Style43 />
       )}
     </>
   );
