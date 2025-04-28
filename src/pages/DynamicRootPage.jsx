@@ -21,7 +21,8 @@ import OurTeam from "../components/Styles/OurTeam/OurTeam";
 import HelpCenter from "../components/Styles/HelpCenter/HelpCenter";
 import BlogStyle from "../components/Styles/BlogStyle/BlogStyle";
 import PrivacyAndTerms from "../components/Styles/PrivacyAndTerms/PrivacyAndTerms";
-import Style34 from "../components/Styles/Features/Style34";
+import Style42 from "../components/Styles/Features/Style42";
+
 
 
 const DynamicRootPage = () => {
@@ -142,7 +143,7 @@ const DynamicRootPage = () => {
         // <p className="text-center text-primary fw-bold fs-5 mt-5 mx-5">
         //   Sorry, no content available on this page right now.
         // </p>
-        <Style34/>
+        <Style42/>
       )}
     </>
   );
