@@ -5,7 +5,7 @@ import { useForm } from "react-hook-form";
 import ButtonLoader from "../Loader/ButtonLoader";
 import { toast } from "sonner";
 
-const SubscribeForm = ({ buttonText }) => {
+const SubscribeForm = ({ buttonText, colorCode }) => {
   const dispatch = useDispatch();
   const { isLoading } = useSelector((state) => state.submission);
 
@@ -38,14 +38,17 @@ const SubscribeForm = ({ buttonText }) => {
         })}
         type="text"
         class="input-newsletter form-control me-2"
-        placeholder="Enter your email"
+        placeholder="Enter Your Email"
         name="email"
         autocomplete="off"
       />
       {errors.email && toast.error(errors.email.message) && ""}
       <button
         disabled={isLoading}
-        className="btn btn-primary rounded mt-3 mt-lg-0 mt-md-0"
+        className={`btn ${
+          colorCode ? "text-white" : "btn-primary"
+        } rounded mt-3 mt-lg-0 mt-md-0`}
+        style={{ backgroundColor: colorCode }}
       >
         {isLoading ? <ButtonLoader /> : buttonText}
       </button>

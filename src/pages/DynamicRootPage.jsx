@@ -140,7 +140,6 @@ const DynamicRootPage = () => {
         <p className="text-center text-primary fw-bold fs-5 mt-5 mx-5">
           Sorry, no content available on this page right now.
         </p>
-        // <Style43 />
       )}
     </>
   );

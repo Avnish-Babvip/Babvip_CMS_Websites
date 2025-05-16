@@ -346,28 +346,28 @@ jQuery(function ($) {
   });
 
   //digital marketing brand logo logo
-  // var swiper = new Swiper('.digi-logo-slider', {
-  //   slidesPerView: 1,
-  //   spaceBetween: 24,
-  //   speed: 1000,
-  //   autoplay: {
-  //     delay: 2500
-  //   },
-  //   slidesPerGroup: 1,
-  //   loop: true,
-  //   breakpoints: {
-  //     320: {
-  //       slidesPerView: 2,
-  //       spaceBetween: 10
-  //     },
-  //     768: {
-  //       slidesPerView: 3
-  //     },
-  //     992: {
-  //       slidesPerView: 6
-  //     }
-  //   }
-  // });
+  var swiper = new Swiper('.digi-logo-slider', {
+    slidesPerView: 1,
+    spaceBetween: 24,
+    speed: 1000,
+    autoplay: {
+      delay: 2500
+    },
+    slidesPerGroup: 1,
+    loop: true,
+    breakpoints: {
+      320: {
+        slidesPerView: 2,
+        spaceBetween: 10
+      },
+      768: {
+        slidesPerView: 3
+      },
+      992: {
+        slidesPerView: 6
+      }
+    }
+  });
 
   //digital marketing testimonial
   var swiper = new Swiper('.digi-testimonial-wrapper', {
