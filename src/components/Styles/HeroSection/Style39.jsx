@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import VideoModal from "../../VideoModal/VideoModal";
 
-const Style5 = ({ data }) => {
+const Style39 = ({ data }) => {
   const assetRoute = `${
     import.meta.env.VITE_PRODUCTION === "true"
       ? import.meta.env.VITE_ASSETS
@@ -75,4 +75,4 @@ const Style5 = ({ data }) => {
   );
 };
 
-export default Style5;
+export default Style39;

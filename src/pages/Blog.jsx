@@ -47,7 +47,7 @@ const ViewBlog = () => {
   ) : (
     <>
       <section
-        class="page-header position-relative overflow-hidden ptb-120 bg-dark"
+        class="page-header position-relative overflow-hidden pt-160 pb-120 bg-dark"
         style={{
           background: `url('${assetRoute}/assets/img/page-header-bg.svg')no-repeat bottom left`,
         }}

@@ -1,6 +1,6 @@
 import React from "react";
 
-const Style2 = ({ data }) => {
+const Style38 = () => {
   return (
     <section
       class="game-counter-bg"
@@ -56,4 +56,4 @@ const Style2 = ({ data }) => {
   );
 };
 
-export default Style2;
+export default Style38;

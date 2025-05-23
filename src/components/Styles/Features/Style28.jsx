@@ -1,147 +1,79 @@
-import React, { useEffect, useRef } from 'react'
-import Swiper from "swiper";
-import "swiper/css";
-
+import React, { useEffect, useRef } from "react";
+import Parallax from "parallax-js";
 
 const Style28 = () => {
-  const swiperRef = useRef(null);
+  const parallaxRef = useRef(null); // Reference for the parallax container
 
   useEffect(() => {
-    const swiperInstance = new Swiper(".brand-logo-slider", {
-      slidesPerView: 2,
-    speed: 700,
-    spaceBetween: 30,
-    slidesPerGroup: 2,
-    loop: true,
-    breakpoints: {
-      320: {
-        slidesPerView: 2,
-        spaceBetween: 30
-      },
-      768: {
-        slidesPerView: 3,
-        spaceBetween: 30
-      },
-      991: {
-        slidesPerView: 5,
-        spaceBetween: 30
-      }
+    if (window.AOS) {
+      window.AOS.init(); // Initialize AOS
     }
-    });
 
-    // Store the Swiper instance in the ref
-    swiperRef.current = swiperInstance;
-
-    return () => {
-      // Ensure Swiper instance exists before destroying
-      if (swiperRef.current && swiperRef.current.destroy) {
-        swiperRef.current.destroy(true, true);
-        swiperRef.current = null; // Reset after unmount
-      }
-    };
+    if (parallaxRef.current) {
+      new Parallax(parallaxRef.current, {
+        relativeInput: true,
+        clipRelativeInput: true,
+      });
+    }
   }, []);
   return (
     <>
-    <section class="cyber-brand-logo pt-80">
-            <div class="container">
-                <div class="row">
-                    <div class="swiper brand-logo-slider swiper-initialized swiper-horizontal swiper-pointer-events">
-                        <div class="swiper-wrapper"><div class="swiper-slide position-relative swiper-slide-duplicate" data-swiper-slide-index="0" role="group" aria-label="1 / 5" >
-                                <div class="cyber-brand-logo text-center">
-                                    <img src="assets/img/brand-logo/slack_logo.png" alt="logo "/>
-                                </div>
-                            </div><div class="swiper-slide position-relative text-center swiper-slide-duplicate" data-swiper-slide-index="1" role="group" aria-label="2 / 5" >
-                                <div class="cyber-brand-logo">
-                                    <div class="cyber-brand-logo">
-                                        <img src="assets/img/brand-logo/logo2.png" alt="logo"/>
-                                    </div>
-                                </div>
-                            </div><div class="swiper-slide position-relative text-center swiper-slide-duplicate swiper-slide-duplicate-prev" data-swiper-slide-index="2" role="group" aria-label="3 / 5" >
-                                <div class="cyber-brand-logo">
-                                    <div class="cyber-brand-logo">
-                                        <img src="assets/img/brand-logo/logo3.png" alt="logo"/>
-                                    </div>
-                                </div>
-                            </div><div class="swiper-slide position-relative text-center swiper-slide-duplicate swiper-slide-duplicate-active" data-swiper-slide-index="3" role="group" aria-label="4 / 5" >
-                                <div class="cyber-brand-logo">
-                                    <div class="cyber-brand-logo">
-                                        <img src="assets/img/brand-logo/logo4.png" alt="logo"/>
-                                    </div>
-                                </div>
-                            </div><div class="swiper-slide position-relative text-center swiper-slide-duplicate swiper-slide-duplicate-next" data-swiper-slide-index="4" role="group" aria-label="5 / 5" >
-                                <div class="cyber-brand-logo">
-                                    <div class="cyber-brand-logo">
-                                        <img src="assets/img/brand-logo/logo5.png" alt="logo"/>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="swiper-slide position-relative" data-swiper-slide-index="0" role="group" aria-label="1 / 5" >
-                                <div class="cyber-brand-logo text-center">
-                                    <img src="assets/img/brand-logo/slack_logo.png" alt="logo "/>
-                                </div>
-                            </div>
-                            <div class="swiper-slide position-relative text-center" data-swiper-slide-index="1" role="group" aria-label="2 / 5" >
-                                <div class="cyber-brand-logo">
-                                    <div class="cyber-brand-logo">
-                                        <img src="assets/img/brand-logo/logo2.png" alt="logo"/>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="swiper-slide position-relative text-center swiper-slide-prev" data-swiper-slide-index="2" role="group" aria-label="3 / 5" >
-                                <div class="cyber-brand-logo">
-                                    <div class="cyber-brand-logo">
-                                        <img src="assets/img/brand-logo/logo3.png" alt="logo"/>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="swiper-slide position-relative text-center swiper-slide-active" data-swiper-slide-index="3" role="group" aria-label="4 / 5" >
-                                <div class="cyber-brand-logo">
-                                    <div class="cyber-brand-logo">
-                                        <img src="assets/img/brand-logo/logo4.png" alt="logo"/>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="swiper-slide position-relative text-center swiper-slide-next" data-swiper-slide-index="4" role="group" aria-label="5 / 5" >
-                                <div class="cyber-brand-logo">
-                                    <div class="cyber-brand-logo">
-                                        <img src="assets/img/brand-logo/logo5.png" alt="logo"/>
-                                    </div>
-                                </div>
-                            </div>
-                        <div class="swiper-slide position-relative swiper-slide-duplicate" data-swiper-slide-index="0" role="group" aria-label="1 / 5" >
-                                <div class="cyber-brand-logo text-center">
-                                    <img src="assets/img/brand-logo/slack_logo.png" alt="logo "/>
-                                </div>
-                            </div><div class="swiper-slide position-relative text-center swiper-slide-duplicate" data-swiper-slide-index="1" role="group" aria-label="2 / 5" >
-                                <div class="cyber-brand-logo">
-                                    <div class="cyber-brand-logo">
-                                        <img src="assets/img/brand-logo/logo2.png" alt="logo"/>
-                                    </div>
-                                </div>
-                            </div><div class="swiper-slide position-relative text-center swiper-slide-duplicate swiper-slide-duplicate-prev" data-swiper-slide-index="2" role="group" aria-label="3 / 5" >
-                                <div class="cyber-brand-logo">
-                                    <div class="cyber-brand-logo">
-                                        <img src="assets/img/brand-logo/logo3.png" alt="logo"/>
-                                    </div>
-                                </div>
-                            </div><div class="swiper-slide position-relative text-center swiper-slide-duplicate swiper-slide-duplicate-active" data-swiper-slide-index="3" role="group" aria-label="4 / 5" >
-                                <div class="cyber-brand-logo">
-                                    <div class="cyber-brand-logo">
-                                        <img src="assets/img/brand-logo/logo4.png" alt="logo"/>
-                                    </div>
-                                </div>
-                            </div><div class="swiper-slide position-relative text-center swiper-slide-duplicate swiper-slide-duplicate-next" data-swiper-slide-index="4" role="group" aria-label="5 / 5" >
-                                <div class="cyber-brand-logo">
-                                    <div class="cyber-brand-logo">
-                                        <img src="assets/img/brand-logo/logo5.png" alt="logo"/>
-                                    </div>
-                                </div>
-                            </div></div>
-                    <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span></div>
-                </div>
+      <section class="feature-section pt-60 pb-120">
+        <div class="container">
+          <div class="row align-items-lg-center justify-content-between">
+            <div class="col-lg-5 order-lg-2 mb-7 mb-lg-0">
+              <div class="mb-4 " data-aos="fade-up">
+                <h2>Experience your Product with Integration</h2>
+                <p>
+                  Conveniently drive stand-alone total linkage for
+                  process-centric content enthusiastically administrate robust
+                  collaborative.{" "}
+                </p>
+              </div>
+              <ul
+                class="list-unstyled d-flex flex-wrap list-two-col mt-5 "
+                data-aos="fade-up"
+                data-aos-delay="50"
+              >
+                <li>
+                  <span class="d-block mb-4">
+                    <i class="fas fa-user fa-2x text-primary"></i>
+                  </span>
+                  <h3 class="h5">Customer analysis</h3>
+                  <p>
+                    Objectively exceptional via customized capital expertise.
+                  </p>
+                </li>
+                <li>
+                  <span class="d-block mb-4">
+                    <i class="fas fa-clock fa-2x text-primary"></i>
+                  </span>
+                  <h3 class="h5">Real time metrics</h3>
+                  <p>Interactively integrate extensible users resource. </p>
+                </li>
+              </ul>
             </div>
-        </section></>
-  )
-}
+            <div class="col-lg-6 order-lg-1">
+              <div class="pr-lg-4">
+                <div
+                  class="bg-light-subtle text-center rounded-custom overflow-hidden p-lg-5 p-3 mx-lg-auto "
+                  data-aos="fade-up"
+                  data-aos-delay="50"
+                >
+                  <img
+                    src="assets/img/dashboard-img.png"
+                    alt=""
+                    class="img-fluid"
+                  />
+                  <div class="position-absolute bg-primary-dark z--1 dot-mask dm-size-16 dm-wh-350 top--40 left--40 top-left"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </>
+  );
+};
 
-export default Style28
+export default Style28;

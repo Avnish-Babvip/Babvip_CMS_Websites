@@ -1,7 +1,6 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
-const Style1 = ({ data }) => {
+const Style40 = () => {
   return (
     <section class="bg-dark-black pt-120 pb-60">
       <div class="container">
@@ -59,4 +58,4 @@ const Style1 = ({ data }) => {
   );
 };
 
-export default Style1;
+export default Style40;

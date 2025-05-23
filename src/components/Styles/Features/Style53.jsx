@@ -2,78 +2,135 @@ import React from "react";
 
 const Style53 = () => {
   return (
-    <section class="dg-cta-section ptb-120 position-relative overflow-hidden z-1">
-      <img
-        src="assets/img/digital-agency/cta-curve-left.png"
-        alt="curve shape"
-        class="position-absolute ct-curve left top-0 h-100 z--1 d-none d-xxl-block"
-      />
-      <img
-        src="assets/img/digital-agency/cta-curve-right.png"
-        alt="curve shape"
-        class="position-absolute ct-curve right top-0 h-100 z--1 d-none d-xxl-block"
-      />
-      <img
-        src="assets/img/digital-agency/cta-line.png"
-        alt="cta line"
-        class="position-absolute start-50 bottom-0 translate-middle-x z--1 d-none d-md-block"
-      />
-      <span class="dg-circle-style-1 position-absolute z--1 dg-circle rounded-circle start-50"></span>
-      <div class="container">
-        <div class="row g-4 justify-content-between align-items-center">
-          <div class="col-lg-6">
-            <div class="dg-cta-content">
-              <span class="text-dg-primary fw-bold">WHAT WE DO</span>
-              <h2 class="mt-2 mb-3 heading-dg-color clr-text">
-                Rethink just how safe renting can be with Quiety
-              </h2>
-              <p class="mb-40 heading-dg-color">
-                Available in Portugal, Spain, Italy, U.K. and France.
-              </p>
-              <div class="dg-cta-btns d-flex align-items-center flex-wrap">
-                <a
-                  href="contact-us.html"
-                  class="btn dg-primary-btn rounded-pill"
-                >
-                  Get in touch
-                </a>
-                <a
-                  href="service-single.html"
-                  class="btn dg-outline-btn rounded-pill"
-                >
-                  Browse all Service
-                </a>
+    <>
+      <section class="promo-section ptb-120">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-lg-6 col-md-10">
+              <div class="section-heading text-center">
+                <h2>We Help you Stay Connected</h2>
+                <p>
+                  Dynamically initiate market positioning total linkage with
+                  clicks-and-mortar technology procrastinate compelling data for
+                  markets.
+                </p>
               </div>
             </div>
           </div>
-          <div class="col-lg-6">
-            <div class="dg-cta-imgs d-flex mt-5 mt-lg-0">
-              <div class="thumb">
-                <img
-                  src="assets/img/digital-agency/bulp.jpg"
-                  alt="not found"
-                  class="img-fluid rounded-4"
-                />
+          <div class="row">
+            <div class="col-lg-4 col-md-6">
+              <div class="promo-single position-relative text-center bg-white custom-shadow rounded-custom p-5 mb-4">
+                <div class="promo-icon mb-32">
+                  <i class="fas fa-wifi text-primary fa-3x"></i>
+                </div>
+                <div class="promo-info">
+                  <h3 class="h5">Stay Connected</h3>
+                  <p class="mb-0">
+                    Interactively disintermediate resource maximizing portals
+                    vertical models maintainable systems.
+                  </p>
+                </div>
+                <div class="dot-shape-bg position-absolute z--1 left--40 top--40">
+                  <img src="assets/img/shape/dot-big-square.svg" alt="shape" />
+                </div>
               </div>
-              <div class="thumb mt-4">
-                <img
-                  src="assets/img/digital-agency/art.jpg"
-                  alt="not found"
-                  class="img-fluid rounded-4"
-                />
+            </div>
+            <div class="col-lg-4 col-md-6">
+              <div class="promo-single position-relative text-center bg-white custom-shadow rounded-custom p-5 mb-4">
+                <div class="promo-icon mb-32">
+                  <i class="fas fa-user-friends text-success fa-3x"></i>
+                </div>
+                <div class="promo-info">
+                  <h3 class="h5">Encourage Participation</h3>
+                  <p class="mb-0">
+                    Interactively disintermediate resource maximizing portals
+                    vertical models maintainable systems.
+                  </p>
+                </div>
               </div>
-              <div class="thumb align-self-end">
-                <img
-                  src="assets/img/digital-agency/art-2.jpg"
-                  alt="not found"
-                  class="img-fluid rounded-4"
-                />
+            </div>
+            <div class="col-lg-4 col-md-6">
+              <div class="promo-single position-relative text-center bg-white custom-shadow rounded-custom p-5 mb-4">
+                <div class="promo-icon mb-32">
+                  <i class="fas fa-bezier-curve text-danger fa-3x"></i>
+                </div>
+                <div class="promo-info">
+                  <h3 class="h5">Build Connections</h3>
+                  <p class="mb-0">
+                    Interactively disintermediate resource maximizing portals
+                    vertical models maintainable systems.
+                  </p>
+                </div>
+                <div class="dot-shape-bg position-absolute z--1 right--40 bottom--40">
+                  <img src="assets/img/shape/dot-big-square.svg" alt="shape" />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="customer-section pt-60">
+            <div class="container">
+              <div class="row justify-content-center">
+                <div class="col-lg-8 col-12">
+                  <div class="customer-logos-grid text-center">
+                    <img
+                      src="assets/img/clients/client-logo-1.svg"
+                      width="150"
+                      alt="clients logo"
+                      class="img-fluid p-1 px-md-2 p-lg-3 m-auto"
+                    />
+                    <img
+                      src="assets/img/clients/client-logo-2.svg"
+                      width="150"
+                      alt="clients logo"
+                      class="img-fluid p-1 px-md-2 p-lg-3 m-auto"
+                    />
+                    <img
+                      src="assets/img/clients/client-logo-3.svg"
+                      width="150"
+                      alt="clients logo"
+                      class="img-fluid p-1 px-md-2 p-lg-3 m-auto"
+                    />
+                    <img
+                      src="assets/img/clients/client-logo-4.svg"
+                      width="150"
+                      alt="clients logo"
+                      class="img-fluid p-1 px-md-2 p-lg-3 m-auto"
+                    />
+                    <img
+                      src="assets/img/clients/client-logo-5.svg"
+                      width="150"
+                      alt="clients logo"
+                      class="img-fluid p-1 px-md-2 p-lg-3 m-auto"
+                    />
+                    <img
+                      src="assets/img/clients/client-logo-6.svg"
+                      width="150"
+                      alt="clients logo"
+                      class="img-fluid p-1 px-md-2 p-lg-3 m-auto"
+                    />
+                    <img
+                      src="assets/img/clients/client-logo-7.svg"
+                      width="150"
+                      alt="clients logo"
+                      class="img-fluid p-1 px-md-2 p-lg-3 m-auto"
+                    />
+                    <img
+                      src="assets/img/clients/client-logo-8.svg"
+                      width="150"
+                      alt="clients logo"
+                      class="img-fluid p-1 px-md-2 p-lg-3 m-auto"
+                    />
+                  </div>
+                  <p class="text-center mt-5 mb-0 h6">
+                    Trusted More than 25,00+ Companies Around the World
+                  </p>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 };
 

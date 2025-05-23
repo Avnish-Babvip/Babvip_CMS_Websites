@@ -1,6 +1,6 @@
 import React from "react";
 
-const Style8 = ({ data }) => {
+const Style6 = () => {
   return (
     <div class="ail-feature-area pt-60 pb-120">
       <div class="container">
@@ -353,4 +353,4 @@ const Style8 = ({ data }) => {
   );
 };
 
-export default Style8;
+export default Style6;

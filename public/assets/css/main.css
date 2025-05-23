@@ -40,7 +40,7 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: normal; /* Ensure wrapping */
-  max-height: 3em; /* Adjust based on font size */
+  max-height: 3.5em; /* Adjust based on font size */
 }
 .truncate-1 {
   display: -webkit-box;
@@ -94,10 +94,14 @@
   opacity: 1;
 } */
 
-
+@media (min-width: 768px) {
+ .ptb-120{
+  padding: 80px 0px !important;
+}
+}
 
 .ptb-120{
-  padding: 80px 0px !important;
+  padding: 40px 0px !important;
 }
 .ptb-custom-120{
   padding: 120px 0px !important;
@@ -110,3 +114,5 @@
 .ptb-80{
   padding: 80px 0px !important;
 }
+
+

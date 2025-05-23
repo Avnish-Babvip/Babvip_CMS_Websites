@@ -1,66 +1,82 @@
-import React from 'react'
+import React from "react";
+import { Link } from "react-router-dom";
 
-const Style19 = () => {
+const Style19 = ({ data }) => {
+  const assetRoute = `${
+    import.meta.env.VITE_PRODUCTION === "true"
+      ? import.meta.env.VITE_ASSETS
+      : ""
+  }`;
   return (
     <>
-    <section class="feature-section ptb-120">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-lg-6 col-md-12">
-                        <div class="section-heading text-center aos-init aos-animate" data-aos="fade-up">
-                            <h4 class="text-primary h5">Build Quality</h4>
-                            <h2>Our Special Features</h2>
-                            <p>Authoritatively underwhelm excellent methodologies
-                                via premium expertise competitive than open-source
-                                imperatives disseminate. </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="row align-items-center">
-                    <div class="col-lg-4 col-md-6">
-                        <div class="position-relative aos-init aos-animate" data-aos="fade-up" data-aos-delay="50">
-                            <div class="cta-card rounded-custom text-center custom-shadow p-5 bg-white mt-4 mt-lg-0 mt-md-0 z-2">
-                                <div class="feature-icon d-inline-block bg-primary-soft rounded-circle mb-32">
-                                    <i class="fas fa-shield-alt text-primary fa-2x"></i>
-                                </div>
-                                <h3 class="h5">Quality First</h3>
-                                <p class="mb-0">Professionally integrate high standards applications before user friendly leadership skills.</p>
-                            </div>
-                            <div class="dot-shape-bg position-absolute z--1 left--40 top--40">
-                                <img src="assets/img/shape/dot-big-square.svg" alt="shape"/>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="position-relative aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
-                            <div class="cta-card rounded-custom text-center custom-shadow p-5 bg-white mt-4 mt-lg-0 mt-md-0">
-                                <div class="feature-icon d-inline-block bg-danger-soft rounded-circle mb-32">
-                                    <i class="fas fa-headset text-danger fa-2x"></i>
-                                </div>
-                                <h3 class="h5">Communication</h3>
-                                <p class="mb-0">Professionally integrate high standards applications before user friendly leadership skills.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="position-relative aos-init aos-animate" data-aos="fade-up" data-aos-delay="150">
-                            <div class="cta-card rounded-custom text-center custom-shadow p-5 bg-white mt-4 mt-lg-0">
-                                <div class="feature-icon d-inline-block bg-success-soft rounded-circle mb-32">
-                                    <i class="fas fa-grin-stars text-success fa-2x"></i>
-                                </div>
-                                <h3 class="h5">Reliability</h3>
-                                <p class="mb-0">Professionally integrate high standards applications before user friendly leadership skills.</p>
-                            </div>
-                            <div class="dot-shape-bg position-absolute z--1 right--40 bottom--40">
-                                <img src="assets/img/shape/dot-big-square.svg" alt="shape"/>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+      <section class="dg-about-section pt-120 bg-white position-relative z-1">
+        <img
+          src={`${assetRoute}/assets/img/digital-agency/ab-shadow-shape.png`}
+          alt="shadows"
+          class="position-absolute end-0 top-0 z--1"
+        />
+        <div class="container">
+          <div class="row g-4 justify-content-between">
+            <div class="col-xl-5 col-lg-6">
+              <div class="dg-about-left pe-4">
+                <img
+                  src={`${import.meta.env.VITE_REACT_APP_IMAGE_PATH}/${
+                    data?.image1
+                  }`}
+                  alt={data?.image1_alt_tag}
+                  class="rounded-4 img-fluid"
+                />
+              </div>
             </div>
-        </section>
-        </>
-  )
-}
+            <div class="col-xl-7 col-lg-6">
+              <div class="dg-about-right ps-lg-4">
+                <span class="fw-bold text-dg-primary">{data?.sub_title}</span>
+                <h2 class="mt-2 mb-4 heading-dg-color">{data?.title}</h2>
+                <p class="mb-5 text-dg-color">{data?.description}</p>
+                {data?.button_text && (
+                  <Link
+                    to={data?.button_url}
+                    target="_blank"
+                    class="btn dg-outline-btn rounded-pill"
+                  >
+                    {data?.button_text}
+                  </Link>
+                )}
+                <div class="dg-about-bottom position-relative mt-70">
+                  <img
+                    src={`${assetRoute}/assets/img/digital-agency/ab-shape-box.jpg`}
+                    alt="not found"
+                    class="rounded-3 shape-box"
+                  />
+                  <img
+                    src={`${import.meta.env.VITE_REACT_APP_IMAGE_PATH}/${
+                      data?.image2
+                    }`}
+                    alt={data?.image2_alt_tag}
+                    class="rounded-4 img-fluid"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <img
+          src={`${assetRoute}/assets/img/digital-agency/doted-line-left.png`}
+          alt="doted line"
+          class="position-absolute start-0 bottom-0 z--1"
+        />
+        <img
+          src={`${assetRoute}/assets/img/digital-agency/doted-line-right.png`}
+          alt="doted line"
+          class="position-absolute end-0 bottom-0 z--1"
+        />
+        <span class="dg-circle-1 dg-circle-style-1 position-absolute z--1 rounded-circle"></span>
+        <span class="dg-circle-2 dg-circle-style-1 position-absolute z--1 rounded-circle"></span>
+        <span class="dg-circle-3 dg-circle-style-2 position-absolute z--1 rounded-circle"></span>
+        <span class="dg-circle-4 dg-circle-style-2 position-absolute z--1 rounded-circle"></span>
+      </section>
+    </>
+  );
+};
 
-export default Style19
+export default Style19;

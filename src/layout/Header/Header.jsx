@@ -45,8 +45,8 @@ const Header = () => {
 
   return (
     <>
-      <header class="main-header w-100 z-10">
-        <nav class="navbar navbar-expand-xl navbar-light sticky-header">
+      <header class="main-header position-absolute w-100">
+        <nav class="navbar navbar-expand-xl navbar-dark sticky-header z-10 affix">
           <div class="container d-flex align-items-center justify-content-lg-between position-relative">
             <Link
               to={"/"}
@@ -63,12 +63,9 @@ const Header = () => {
               )}
             </Link>
             {/* Hamburger */}
-            <div
-              class="navbar-toggler position-absolute right-0 border-0"
-              role="button"
-            >
+            <div class="position-absolute pr-15 right-0 border-0" role="button">
               <i
-                class="flaticon-menu"
+                class="flaticon-menu "
                 data-bs-toggle="offcanvas"
                 data-bs-target="#offcanvasWithBackdrop"
                 aria-controls="offcanvasWithBackdrop"
@@ -105,7 +102,7 @@ const Header = () => {
                           }`}
                         >
                           <div className="dropdown-grid rounded-custom homepage-dropdown">
-                            <div style={{ width: "810px" }}>
+                            <div style={{ width: "864px" }}>
                               <div className="row g-0">
                                 {item?.children_recursive?.map(
                                   (item2, idx2) => (
@@ -122,7 +119,7 @@ const Header = () => {
                                       <div
                                         className="card h-100 border-0 rounded-3 zoom-card"
                                         style={{
-                                          width: "270px",
+                                          width: "288px",
                                           cursor: "pointer",
                                           overflow: "hidden",
                                         }}
@@ -139,16 +136,16 @@ const Header = () => {
                                                   : `${assetRoute}/placeholder.webp`
                                               }
                                               alt={item2?.title}
-                                              width={220}
+                                              width={255}
                                               height={150}
                                               className="rounded-3 zoom-image"
                                             />
                                           </div>
                                           <div>
-                                            <h5 className="card-title d-flex fs-6 gap-2">
-                                              {item2?.title} <span>›</span>
+                                            <h5 className="card-title d-flex align-items-center fs-6 gap-2">
+                                              <div>{item2?.title}</div>
                                             </h5>
-                                            <p className="card-text text-muted small truncate-2 font-weight-semibold text-capitalize">
+                                            <p className="card-text text-muted   small truncate-2 font-weight-semibold text-capitalize">
                                               {item2?.menu_description}
                                             </p>
                                           </div>

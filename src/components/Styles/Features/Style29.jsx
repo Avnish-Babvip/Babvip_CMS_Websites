@@ -1,117 +1,176 @@
-import React from 'react'
+import React from "react";
 
 const Style29 = () => {
   return (
     <>
-    <section class="cyber-features pt-100 bg-light-subtle">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-md-8 col-lg-6">
-                        <div class="section-heading text-center mb-5">
-                            <h5 class="h6 text-primary">Service</h5>
-                            <h2>High Quality Trusted Cyber Security solution</h2>
-                            <p>
-                                Uniquely promote adaptive quality vectors rather than stand-alone
-                                e-markets. pontificate alternative architectures whereas iterate
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-4">
-                        <div class="cyber-single-service bg-white rounded-custom mb-30">
-                            <div class="feature-icon pb-5 rounded bg-primary-soft text-primary mb-4">
-                                <i class="fas fa-list"></i>
-                            </div>
-                            <div class="cyber feature-info-wrap">
-                                <h3 class="h5">Disaster Planning</h3>
-                                <p>
-                                    Randomised words which don't look even passage of Lorem Ipsum.
-                                    You need to be Lorem Ipsum randomised even .
-                                </p>
-                            </div>
-                            <a href="service-single.html" class="link-with-icon text-decoration-none">Explore More <i class="fas fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="cyber-single-service bg-white rounded-custom mb-30">
-                            <div class="feature-icon pb-5 rounded bg-primary-soft text-primary mb-4">
-                                <i class="fas fa-cloud"></i>
-                            </div>
-                            <div class="cyber feature-info-wrap">
-                                <h3 class="h5">Cloud Security</h3>
-                                <p>
-                                    Randomised words which don't look even passage of Lorem Ipsum.
-                                    You need to be Lorem Ipsum randomised even .
-                                </p>
-                            </div>
-                            <a href="service-single.html" class="link-with-icon text-decoration-none">Explore More <i class="fas fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="cyber-single-service bg-white rounded-custom mb-30">
-                            <div class="feature-icon pb-5 rounded bg-primary-soft text-primary mb-4">
-                                <i class="fas fa-database"></i>
-                            </div>
-                            <div class="cyber feature-info-wrap">
-                                <h3 class="h5">Database Security</h3>
-                                <p>
-                                    Randomised words which don't look even passage of Lorem Ipsum.
-                                    You need to be Lorem Ipsum randomised even .
-                                </p>
-                            </div>
-                            <a href="service-single.html" class="link-with-icon text-decoration-none">Explore More <i class="fas fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="cyber-single-service bg-white rounded-custom mb-30">
-                            <div class="feature-icon pb-5 rounded bg-primary-soft text-primary mb-4">
-                                <i class="fas fa-door-closed"></i>
-                            </div>
-                            <div class="cyber feature-info-wrap">
-                                <h3 class="h5">Locker Security</h3>
-                                <p>
-                                    Randomised words which don't look even passage of Lorem Ipsum.
-                                    You need to be Lorem Ipsum randomised even .
-                                </p>
-                            </div>
-                            <a href="service-single.html" class="link-with-icon text-decoration-none">Explore More <i class="fas fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="cyber-single-service bg-white rounded-custom mb-30">
-                            <div class="feature-icon pb-5 rounded bg-primary-soft text-primary mb-4">
-                                <i class="fas fa-lock"></i>
-                            </div>
-                            <div class="cyber feature-info-wrap">
-                                <h3 class="h5">Data Security</h3>
-                                <p>
-                                    Randomised words which don't look even passage of Lorem Ipsum.
-                                    You need to be Lorem Ipsum randomised even .
-                                </p>
-                            </div>
-                            <a href="service-single.html" class="link-with-icon text-decoration-none">Explore More <i class="fas fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="cyber-single-service bg-white rounded-custom mb-30">
-                            <div class="feature-icon pb-5 rounded bg-primary-soft text-primary mb-4">
-                                <i class="fas fa-server"></i>
-                            </div>
-                            <div class="cyber feature-info-wrap">
-                                <h3 class="h5">Web Security</h3>
-                                <p>
-                                    Randomised words which don't look even passage of Lorem Ipsum.
-                                    You need to be Lorem Ipsum randomised even .
-                                </p>
-                            </div>
-                            <a href="service-single.html" class="link-with-icon text-decoration-none">Explore More <i class="fas fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </div>
+      <section class="feature-section ptb-120 bg-dark text-white ">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-lg-6 col-md-10">
+              <div
+                class="section-heading text-center aos-init aos-animate"
+                data-aos="fade-up"
+              >
+                <h2>Best Services Grow Your Business Value</h2>
+                <p>
+                  Globally actualize cost effective with resource maximizing
+                  leadership skills.
+                </p>
+              </div>
             </div>
-        </section></>
-  )
-}
+          </div>
+          <div class="row">
+            <div class="col-12">
+              <div class="feature-grid">
+                <div
+                  class="feature-card bg-custom-light promo-border-hover border border-2 border-light text-white shadow-sm highlight-card rounded-custom p-5 aos-init aos-animate"
+                  data-aos="fade-up"
+                  data-aos-delay="50"
+                >
+                  <div class="icon-box d-inline-block rounded-circle bg-primary-soft mb-32">
+                    <i class="fas fa-chart-simple icon-sm text-primary"></i>
+                  </div>
+                  <div class="feature-content">
+                    <h3 class="h5">Advanced analytics</h3>
+                    <p>
+                      Synergistically pursue accurate initiatives without
+                      economically sound imperatives.
+                    </p>
+                    <p>
+                      {" "}
+                      Professionally architect unique process improvements via
+                      optimal.
+                    </p>
+                    <h6 class="mt-4">Included with...</h6>
+                    <ul class="list-unstyled mb-0">
+                      <li class="py-1">
+                        <i class="far fa-check-circle me-2 text-primary"></i>
+                        High -converting
+                      </li>
+                      <li class="py-1">
+                        <i class="far fa-check-circle me-2 text-primary"></i>
+                        Personal branding
+                      </li>
+                      <li class="py-1">
+                        <i class="far fa-check-circle me-2 text-primary"></i>
+                        Modernized prospecting
+                      </li>
+                      <li class="py-1">
+                        <i class="far fa-check-circle me-2 text-primary"></i>
+                        Clean and modern
+                      </li>
+                      <li class="py-1">
+                        <i class="far fa-check-circle me-2 text-primary"></i>
+                        Showcasing success
+                      </li>
+                      <li class="py-1">
+                        <i class="far fa-check-circle me-2 text-primary"></i>
+                        Bootstrap latest version
+                      </li>
+                    </ul>
+                  </div>
+                  <a
+                    href="service-single.html"
+                    class="link-with-icon text-decoration-none mt-3"
+                  >
+                    View Details <i class="fas fa-arrow-right"></i>
+                  </a>
+                </div>
+                <div
+                  class="feature-card bg-custom-light promo-border-hover border border-2 border-light text-white shadow-sm rounded-custom p-5 aos-init aos-animate"
+                  data-aos="fade-up"
+                  data-aos-delay="50"
+                >
+                  <div class="icon-box d-inline-block rounded-circle bg-success-soft mb-32">
+                    <i class="fas fa-file icon-sm text-success"></i>
+                  </div>
+                  <div class="feature-content">
+                    <h3 class="h5">Automated Reports</h3>
+                    <p class="mb-0">
+                      Synergistically pursue accurate initiatives without
+                      economically imperatives.
+                    </p>
+                  </div>
+                  <a
+                    href="service-single.html"
+                    class="link-with-icon text-decoration-none mt-3"
+                  >
+                    View Details <i class="fas fa-arrow-right"></i>
+                  </a>
+                </div>
+                <div
+                  class="feature-card bg-custom-light promo-border-hover border border-2 border-light text-white shadow-sm rounded-custom p-5 aos-init aos-animate"
+                  data-aos="fade-up"
+                  data-aos-delay="50"
+                >
+                  <div class="icon-box d-inline-block rounded-circle bg-danger-soft mb-32">
+                    <i class="fas fa-user-group icon-sm text-danger"></i>
+                  </div>
+                  <div class="feature-content">
+                    <h3 class="h5">User Journey Flow</h3>
+                    <p class="mb-0">
+                      Quickly productize prospective value before collaborative
+                      benefits.
+                    </p>
+                  </div>
+                  <a
+                    href="service-single.html"
+                    class="link-with-icon text-decoration-none mt-3"
+                  >
+                    View Details <i class="fas fa-arrow-right"></i>
+                  </a>
+                </div>
+                <div
+                  class="feature-card bg-custom-light promo-border-hover border border-2 border-light text-white shadow-sm rounded-custom p-5 aos-init aos-animate"
+                  data-aos="fade-up"
+                  data-aos-delay="50"
+                >
+                  <div class="icon-box d-inline-block rounded-circle bg-dark-soft mb-32">
+                    <i class="fas fa-spell-check icon-sm text-dark"></i>
+                  </div>
+                  <div class="feature-content">
+                    <h3 class="h5">Compare A/B Testing</h3>
+                    <p class="mb-0">
+                      Credibly disintermediate functional processes for team
+                      driven action.
+                    </p>
+                  </div>
+                  <a
+                    href="service-single.html"
+                    class="link-with-icon text-decoration-none mt-3"
+                  >
+                    View Details <i class="fas fa-arrow-right"></i>
+                  </a>
+                </div>
+                <div
+                  class="feature-card bg-custom-light promo-border-hover border border-2 border-light text-white shadow-sm rounded-custom p-5 aos-init aos-animate"
+                  data-aos="fade-up"
+                  data-aos-delay="50"
+                >
+                  <div class="icon-box d-inline-block rounded-circle bg-warning-soft mb-32">
+                    <i class="fas fa-cog icon-sm text-warning"></i>
+                  </div>
+                  <div class="feature-content">
+                    <h3 class="h5">Easy Customization</h3>
+                    <p class="mb-0">
+                      Dynamically develop ubiquitous opportunities whereas
+                      relationships.
+                    </p>
+                  </div>
+                  <a
+                    href="service-single.html"
+                    class="link-with-icon text-decoration-none mt-3"
+                  >
+                    View Details <i class="fas fa-arrow-right"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </>
+  );
+};
 
-export default Style29
+export default Style29;

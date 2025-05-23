@@ -1,107 +1,145 @@
-import React from 'react'
+import React, { useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
+import Swiper from "swiper";
+import "swiper/css";
+import { Pagination } from "swiper/modules";
 
-const Style21 = () => {
+const Style21 = ({ data }) => {
+  const assetRoute = `${
+    import.meta.env.VITE_PRODUCTION === "true"
+      ? import.meta.env.VITE_ASSETS
+      : ""
+  }`;
+  const swiperRef = useRef(null);
+  useEffect(() => {
+    const swiperInstance = new Swiper(".dg-team-slider", {
+      modules: [Pagination],
+      spaceBetween: 24,
+      loop: true,
+      pagination: {
+        el: ".dg-team-slider-controls",
+        type: "bullets",
+        clickable: true,
+      },
+      breakpoints: {
+        0: {
+          slidesPerView: 1,
+        },
+        425: {
+          slidesPerView: 2,
+        },
+        768: {
+          slidesPerView: 3,
+        },
+        992: {
+          slidesPerView: 2,
+        },
+        1400: {
+          slidesPerView: 3,
+        },
+      },
+    });
+    // Store the Swiper instance in the ref
+    swiperRef.current = swiperInstance;
+
+    return () => {
+      if (swiperRef.current) {
+        swiperRef.current.destroy(true, true); // Cleanup on unmount
+      }
+    };
+  }, []);
   return (
     <>
-    <section class="feature-tab-section ptb-120 bg-light-subtle">
-            <div class="container">
-                <div class="row justify-content-center align-content-center">
-                    <div class="col-md-10 col-lg-6">
-                        <div class="section-heading text-center">
-                            <h4 class="h5 text-primary">Features</h4>
-                            <h2>Powerful Advanced Features</h2>
-                            <p>Dynamically initiate market positioning total linkage with clicks-and-mortar technology
-                                progressively procrastinate compelling.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-12">
-                        <ul class="nav justify-content-center feature-tab-list-2 mb-0" id="nav-tab" role="tablist">
-                            <li class="nav-item" role="presentation">
-                                <a class="nav-link active" href="#tab-1" data-bs-toggle="tab" data-bs-target="#tab-1" role="tab" aria-selected="true">
-                                    AI &amp; Data Science
-                                </a>
-                            </li>
-                            <li class="nav-item" role="presentation">
-                                <a class="nav-link" href="#tab-2" data-bs-toggle="tab" data-bs-target="#tab-2" role="tab" aria-selected="false" tabindex="-1">
-                                    Automation Power
-                                </a>
-                            </li>
-                            <li class="nav-item" role="presentation">
-                                <a class="nav-link" href="#tab-3" data-bs-toggle="tab" data-bs-target="#tab-3" role="tab" aria-selected="false" tabindex="-1">
-                                    Advanced Technology
-                                </a>
-                            </li>
-                        </ul>
-                        <div class="tab-content" id="nav-tabContent">
-                            <div class="tab-pane fade pt-60 active show" id="tab-1" role="tabpanel">
-                                <div class="row justify-content-center align-items-center justify-content-around">
-                                    <div class="col-lg-5">
-                                        <div class="feature-tab-info">
-                                            <h3>AI &amp; Data Science</h3>
-                                            <p>Continually network effective bandwidth whereas goal-oriented schemas.
-                                                Intrinsicly incentivize corporate synergy with accurate task bricks-and-clicks leadership skills . </p>
-                                            <p>Conveniently develop innovative infomediaries for
-                                                enabled functionalities. Dynamically coordinate leading-edge
-                                                after virtual potentialities drive multidisciplinary infrastructures.</p>
-                                            <a href="about-us.html" class="read-more-link text-decoration-none mt-4 d-block">Know More About Us
-                                                <i class="fas fa-arrow-right ms-2"></i></a>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-5">
-                                        <img src="assets/img/screen/widget-12.png" alt="feature tab" class="img-fluid mt-4 mt-lg-0 mt-xl-0"/>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="tab-pane fade pt-60" id="tab-2" role="tabpanel">
-                                <div class="row justify-content-center align-items-center justify-content-around">
-                                    <div class="col-lg-5">
-                                        <img src="assets/img/screen/widget-8.png" alt="feature tab" class="img-fluid mb-4 mb-lg-0 mb-xl-0"/>
-                                    </div>
-                                    <div class="col-lg-5">
-                                        <div class="feature-tab-info">
-                                            <h3>Automation Power</h3>
-                                            <p>Conveniently develop innovative infomediaries for
-                                                enabled functionalities. Dynamically coordinate leading-edge
-                                                corporate synergy
-                                                after virtual potentialities.</p>
-                                            <p>Continually network effective bandwidth whereas goal-oriented schemas.
-                                                Intrinsicly with accurate meta-services.
-                                                Rapidiously parallel task bricks-and-clicks leadership skills with
-                                                revolutionary. </p>
-                                            <a href="about-us.html" class="read-more-link text-decoration-none mt-4 d-block">Know More About Us
-                                                <i class="fas fa-arrow-right ms-2"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="tab-pane fade pt-60" id="tab-3" role="tabpanel">
-                                <div class="row justify-content-center align-items-center justify-content-around">
-                                    <div class="col-lg-5">
-                                        <div class="feature-tab-info">
-                                            <h3>Advanced Technology</h3>
-                                            <p>Intrinsicly incentivize corporate synergy with accurate meta-services.
-                                                Rapidiously parallel task bricks-and-clicks. Leadership skills with
-                                                revolutionary convergence conveniently develop.</p>
-                                            <p>Continually expedite business systems without premier testing procedures
-                                                architect principle-centered e-tailers for progressive maintain open-source solutions. </p>
-                                            <a href="about-us.html" class="read-more-link text-decoration-none mt-4 d-block">Know More About Us
-                                                <i class="fas fa-arrow-right ms-2"></i></a>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-5">
-                                        <img src="assets/img/screen/widget-11.png" alt="feature tab" class="img-fluid mt-4 mt-lg-0 mt-xl-0"/>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+      <section class="dg-team-section pb-100 position-relative z-1 overflow-hidden ptb-120">
+        <img
+          src={`${assetRoute}/assets/img/digital-agency/team-curve-left.png`}
+          alt="team curve"
+          class="position-absolute left tm-curve top-0 h-100 z--1 d-none d-xxl-block"
+        />
+        <img
+          src={`${assetRoute}/assets/img/digital-agency/team-curve-right.png`}
+          alt="team curve"
+          class="position-absolute right tm-curve top-0 z--1 h-100 d-none d-xxl-block"
+        />
+        <img
+          src={`${assetRoute}/assets/img/digital-agency/team-line.png`}
+          alt="line shape"
+          class="position-absolute team-line z--1 bottom-0"
+        />
+        <span class="dg-circle-style-1 dg-circle-1 rounded-circle position-absolute z--1"></span>
+        <span class="dg-circle-style-2 dg-circle-2 rounded-circle position-absolute z--1"></span>
+        <div class="container">
+          <div class="row align-items-center g-4">
+            <div class="col-xl-5 col-lg-6">
+              <div class="dg-team-content text-center text-lg-start mb-4 mb-lg-0">
+                <span class="fw-bold text-dg-primary mb-2">
+                  {data?.sub_title}
+                </span>
+                <h2 class="mb-4 clr-text">{data?.title}</h2>
+                <p class="mb-40">{data?.description}</p>
+                {data?.button_text && (
+                  <Link
+                    to={data?.button_url}
+                    target="_blank"
+                    class="btn dg-primary-btn rounded-pill"
+                  >
+                    {data?.button_text}
+                  </Link>
+                )}
+              </div>
             </div>
-        </section>
-        </>
-  )
-}
+            <div class="col-xl-7 col-lg-6">
+              <div class="dg-team-slider swiper swiper-initialized swiper-horizontal swiper-pointer-events swiper-backface-hidden">
+                <div class="swiper-wrapper">
+                  {data?.step_data.map((item, idx) => (
+                    <div
+                      class="dg-team-single swiper-slide rounded-3 position-relative overflow-hidden swiper-slide-duplicate"
+                      data-swiper-slide-index="0"
+                      role="group"
+                      aria-label="1 / 3"
+                    >
+                      <img
+                        src={`${import.meta.env.VITE_REACT_APP_IMAGE_PATH}/${
+                          item?.step_image
+                        }`}
+                        alt={item?.step_image_alt_tag}
+                        class="img-fluid"
+                      />
+                      <div class="designation-box bg-white rounded-3 text-center">
+                        <h6 class="heading-dg-color mb-0">{item?.name}</h6>
+                        <span class="fs-sm d-block">{item?.designation}</span>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+                <div class="dg-team-slider-controls dg-slider-control d-flex align-items-center justify-content-center mt-40 swiper-pagination-clickable swiper-pagination-bullets swiper-pagination-horizontal">
+                  <span
+                    class="swiper-pagination-bullet"
+                    tabindex="0"
+                    role="button"
+                    aria-label="Go to slide 1"
+                  ></span>
+                  <span
+                    class="swiper-pagination-bullet"
+                    tabindex="0"
+                    role="button"
+                    aria-label="Go to slide 2"
+                  ></span>
+                  <span
+                    class="swiper-pagination-bullet "
+                    tabindex="0"
+                    role="button"
+                    aria-label="Go to slide 3"
+                    aria-current="true"
+                  ></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </>
+  );
+};
 
-export default Style21
+export default Style21;
