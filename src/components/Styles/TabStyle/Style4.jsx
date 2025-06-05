@@ -1,246 +1,110 @@
 import React from "react";
 
-const Style4 = () => {
+const Style4 = ({ data }) => {
   return (
     <>
-      <section class="ptb-120 bg-dark">
-        <div class="container">
-          <div class="row justify-content-center">
-            <div class="col-lg-6 col-md-6">
-              <div class="text-center">
-                <h2>We Build any Kind Of Technology</h2>
-                <p>
-                  Credibly grow premier ideas rather than bricks-and-clicks
-                  strategic theme areas distributed for stand-alone
-                  web-readiness.
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="row justify-content-center">
-            <div class="col-lg-5">
-              <div class="service-tabs">
-                <ul
-                  class="nav nav-pills d-flex justify-content-center"
-                  id="pills-tab"
-                  role="tablist"
-                >
-                  <li class="nav-item" role="presentation">
-                    <button
-                      class="nav-link me-4"
-                      id="pills-home-tab"
-                      data-bs-toggle="pill"
-                      data-bs-target="#pills-home"
-                      type="button"
-                      role="tab"
-                      aria-controls="pills-home"
-                      aria-selected="false"
-                      tabindex="-1"
-                    >
-                      <i class="fas fa-desktop me-3"></i>
-                      <span>Web Design</span>
-                    </button>
-                  </li>
-                  <li class="nav-item" role="presentation">
-                    <button
-                      class="nav-link me-4"
-                      id="pills-profile-tab"
-                      data-bs-toggle="pill"
-                      data-bs-target="#pills-profile"
-                      type="button"
-                      role="tab"
-                      aria-controls="pills-profile"
-                      aria-selected="false"
-                      tabindex="-1"
-                    >
-                      <i class="fas fa-tablet-alt me-3"></i>
-                      <span>App Development</span>
-                    </button>
-                  </li>
-                  <li class="nav-item" role="presentation">
-                    <button
-                      class="nav-link active"
-                      id="pills-contact-tab"
-                      data-bs-toggle="pill"
-                      data-bs-target="#pills-contact"
-                      type="button"
-                      role="tab"
-                      aria-controls="pills-contact"
-                      aria-selected="true"
-                    >
-                      <i class="fas fa-vector-square me-2"></i>
-                      <span>UX/UI Design</span>
-                    </button>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="tab-content" id="pills-tabContent">
-              <div
-                class="tab-pane fade"
-                id="pills-home"
-                role="tabpanel"
-                aria-labelledby="pills-home-tab"
-              >
-                <div class="tab-content-wrapper pt-60">
-                  <div class="row align-items-center">
-                    <div class="col-md-6">
-                      <div class="text-center mb-5 mb-lg-0">
-                        <img
-                          src="assets/img/tab_img1.png"
-                          alt=""
-                          class="img-fluid"
-                        />
-                      </div>
-                    </div>
-                    <div class="col-md-6">
-                      <div class="tab-right-content">
-                        <h2>
-                          We are working with <br />
-                          15 years exprience
-                        </h2>
-                        <p>
-                          Continually network effective bandwidth whereas
-                          goal-oriented schemas. Intrinsicly incentivize
-                          corporate synergy with accurate task bricks-and-clicks
-                          leadership skills.
-                        </p>
-                        <ul class="list-unstyled">
-                          <li>
-                            <i class="fas fa-check text-primary"></i>
-                            <span>Digital Conferance</span>
-                          </li>
-                          <li>
-                            <i class="fas fa-check text-primary"></i>
-                            <span>Great Speak</span>
-                          </li>
-                          <li>
-                            <i class="fas fa-check text-primary"></i>
-                            <span>Event Mangement</span>
-                          </li>
-                        </ul>
-                        <a
-                          href="#"
-                          class="text-white link-with-icon text-decoration-none"
-                        >
-                          Know More About Us
-                          <i class="fas fa-arrow-right"></i>
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div
-                class="tab-pane fade"
-                id="pills-profile"
-                role="tabpanel"
-                aria-labelledby="pills-profile-tab"
-              >
-                <div class="tab-content-wrapper pt-60">
-                  <div class="row align-items-center">
-                    <div class="col-md-6">
-                      <div class="pe-5 mb-5 mb-lg-0">
-                        <img
-                          src="assets/img/tab_img2.png"
-                          alt=""
-                          class="img-fluid"
-                        />
-                      </div>
-                    </div>
-                    <div class="col-md-6">
-                      <div class="tab-right-content">
-                        <h2>Automation Power</h2>
-                        <p>
-                          Continually network effective bandwidth whereas
-                          goal-oriented schemas. Intrinsicly incentivize
-                          corporate synergy with accurate task bricks-and-clicks
-                          leadership skills.
-                        </p>
-                        <ul class="list-unstyled">
-                          <li>
-                            <i class="fas fa-check text-primary"></i>
-                            <span>Digital Conferance</span>
-                          </li>
-                          <li>
-                            <i class="fas fa-check text-primary"></i>
-                            <span>Great Speak</span>
-                          </li>
-                          <li>
-                            <i class="fas fa-check text-primary"></i>
-                            <span>Event Mangement</span>
-                          </li>
-                        </ul>
-                        <a
-                          href="#"
-                          class="text-white link-with-icon text-decoration-none"
-                        >
-                          Know More About Us
-                          <i class="fas fa-arrow-right"></i>
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div
-                class="tab-pane fade active show"
-                id="pills-contact"
-                role="tabpanel"
-                aria-labelledby="pills-contact-tab"
-              >
-                <div class="tab-content-wrapper pt-60">
-                  <div class="row align-items-center">
-                    <div class="col-md-6">
-                      <div class="mb-5 mb-lg-0">
-                        <img
-                          src="assets/img/tab_img3.png"
-                          alt=""
-                          class="img-fluid"
-                        />
-                      </div>
-                    </div>
-                    <div class="col-md-6">
-                      <div class="tab-right-content">
-                        <h2>Advanced Technology</h2>
-                        <p>
-                          Continually network effective bandwidth whereas
-                          goal-oriented schemas. Intrinsicly incentivize
-                          corporate synergy with accurate task bricks-and-clicks
-                          leadership skills.
-                        </p>
-                        <ul class="list-unstyled">
-                          <li>
-                            <i class="fas fa-check text-primary"></i>
-                            <span>Digital Conferance</span>
-                          </li>
-                          <li>
-                            <i class="fas fa-check text-primary"></i>
-                            <span>Great Speak</span>
-                          </li>
-                          <li>
-                            <i class="fas fa-check text-primary"></i>
-                            <span>Event Mangement</span>
-                          </li>
-                        </ul>
-                        <a
-                          href="#"
-                          class="text-white link-with-icon text-decoration-none"
-                        >
-                          Know More About Us
-                          <i class="fas fa-arrow-right"></i>
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+      <div class="social-media-section section-space--sm bgc-background">
+        <div class="section-space--sm-bottom">
+          <div class="container">
+            <div class="row justify-content-center">
+              <div class="col-md-10 col-xl-8">
+                <h3 class="heading-3 clr-text font-weight-semibold text-center mb-0">
+                  {data?.title}{" "}
+                  <span class="clr-red">{data?.highlighted_title} </span>
+                </h3>
               </div>
             </div>
           </div>
         </div>
-      </section>
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <div
+                class="list-group flex-row flex-wrap justify-content-center margin-bottom-13"
+                role="tablist"
+              >
+                {data?.tab_data.map((item, idx) => (
+                  <a
+                    href={`#${idx + 1}`}
+                    class={`social-media-btn ${idx === 0 && "active"}`}
+                    data-bs-toggle="list"
+                    role="tab"
+                  >
+                    <span class="d-grid place-content-center width-12 height-12 rounded-circle bgc-text-1 clr-paragraph flex-shrink-0 fs-20">
+                      <img
+                        src={`${import.meta.env.VITE_REACT_APP_IMAGE_PATH}/${
+                          item?.step_image_icon
+                        }`}
+                        alt={item?.step_image_icon_alt_tag}
+                        class="rounded"
+                      />
+                    </span>
+                    <span class="d-inline-block font-weight-bold fs-20 clr-paragraph">
+                      {item?.tab_main_title}
+                    </span>
+                  </a>
+                ))}
+              </div>
+              <div class="tab-content">
+                {data?.tab_data.map((item, idx) => (
+                  <div
+                    class={`tab-pane fade ${!idx && "active show"}`}
+                    id={idx + 1}
+                    role="tabpanel"
+                  >
+                    <div class="border border-red-clr rounded-4 padding-4">
+                      <div class=" bgc-white rounded-4 pt-3 pb-5 pt-md-5 pb-md-5 pt-xl-0 pb-xl-0 padding-x-2 padding-x-xsm-4 padding-x-sm-8 padding-x-md-12 padding-x-lg-0 ">
+                        <div class="row align-items-center">
+                          {/* Image Column (visible only on lg and up) */}
+                          <div class="col-lg-5 d-none d-lg-block">
+                            <img
+                              src={`${
+                                import.meta.env.VITE_REACT_APP_IMAGE_PATH
+                              }/${item?.tab_image}`}
+                              alt={item?.tab_image_alt_tag}
+                              class="img-fluid w-100 h-100 object-fit-cover"
+                              style={{ objectFit: "cover" }}
+                            />
+                          </div>
+
+                          {/* Text Content Column */}
+                          <div class="col-12 col-lg-7 col-xl-6 col-xxl-5 mt-4 mt-lg-0">
+                            <h5 class="heading-5 font-weight-semibold mb-3 clr-text">
+                              {item?.tab_title}
+                            </h5>
+                            <p class="clr-paragraph mb-4">
+                              {item?.tab_description}
+                            </p>
+                            <ul class="list gap-3 p-0">
+                              {[
+                                item?.step1_text,
+                                item?.step2_text,
+                                item?.step3_text,
+                              ].map(
+                                (step, index) =>
+                                  step && (
+                                    <li key={index}>
+                                      <div class="d-flex gap-2 align-items-center clr-paragraph">
+                                        <div class="flex-shrink-0">
+                                          <i class="far fa-check-circle"></i>
+                                        </div>
+                                        <p class="mb-0 flex-grow-1">{step}</p>
+                                      </div>
+                                    </li>
+                                  )
+                              )}
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </>
   );
 };

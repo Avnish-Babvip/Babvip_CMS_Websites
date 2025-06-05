@@ -1,42 +1,52 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
-const Style9 = () => {
+const Style9 = ({ data }) => {
   return (
     <>
-      <div class="ai-wt-cta-area">
+      <div class="aiart-cta-area pt-80 pb-80">
         <div class="container">
-          <div class="wt-cta-wrapper ptb-60 text-center rounded-3">
+          <div class="aiart-cta-wrapper risk-bg-color-two ptb-80 rounded-3 position-relative z-1">
             <div class="row justify-content-center">
-              <div class="col-xl-6">
-                <div class="p-2">
-                  <h2 class="aiwt-title text-white ff-risk-pri fs-36 mb-20">
-                    Are You Prepared to Dive into <br /> Angel List Relay?
-                  </h2>
-                  <p class="text-white mb-20">
-                    Streamline your video creation process by embedding your
-                    videos into.
-                  </p>
-                  <a
-                    href=""
-                    class="btn bg-white rounded-5 text-black fs-16 d-inline-flex align-items-center gap-3 border-0"
-                  >
-                    <div class="wt-cta-icon ai-wt-gd-bg-2 d-flex align-items-center justify-content-center rounded-circle p-1">
+              <div class="col-xl-6 col-lg-10">
+                <div class="text-center">
+                  <h6 class="aiart-sub-title aiart-clr fs-18 fw-600 d-inline-flex align-items-center gap-3 mb-20">
+                    <span>
                       <svg
-                        width="14"
-                        height="11"
-                        viewBox="0 0 14 11"
+                        width="22"
+                        height="24"
+                        viewBox="0 0 22 24"
                         fill="none"
                         xmlns="http://www.w3.org/2000/svg"
                       >
                         <path
-                          d="M0.445754 9.59827C0.445754 9.59827 6.95417 5.14367 12.8241 1.1261M12.8241 1.1261C8.58368 4.02837 4.97692 0.437985 4.97692 0.437985M12.8241 1.1261C8.58368 4.02837 10.625 8.69019 10.625 8.69019"
-                          stroke="white"
-                          stroke-width="1.2"
+                          d="M1.5 20.75L20.5 1.75"
+                          stroke="#ED6D4B"
+                          stroke-width="3"
+                        ></path>
+                        <path
+                          d="M10.5 22.25L20.5 12.25"
+                          stroke="#ED6D4B"
+                          stroke-width="3"
                         ></path>
                       </svg>
-                    </div>
-                    Request a Trial
-                  </a>
+                    </span>
+                    {data?.sub_title}
+                  </h6>
+                  <h2 class="aiart-title text-white fs-48 ff-risk-pri mb-30">
+                    {data?.title}{" "}
+                    <span class="aiart-gd-text">{data?.highlighted_title}</span>
+                  </h2>
+                  {data?.button_text && (
+                    <Link
+                      to={data?.button_url}
+                      target="_blank"
+                      href=""
+                      class="btn aiart-btn-gd text-white rounded-3 border-0"
+                    >
+                      {data?.button_text}
+                    </Link>
+                  )}
                 </div>
               </div>
             </div>

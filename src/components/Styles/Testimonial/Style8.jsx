@@ -1,129 +1,111 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
 
-const Style8 = () => {
-  return (<>
-  <section class="sh-feedback pt-120 game-bg-dark">
-            <div class="container position-relative">
-                <div class="row justify-content-between">
-                    <div class="col-lg-4 col-md-7">
-                        <div class="section-title mb-4 mb-lg-0">
-                            <h3 class="text-white">Customer Feedback! Say About Us?</h3>
-                        </div>
-                    </div>
-                    <div class="col-lg-8 col-md-4">
-                        <div class="text-md-end">
-                            <a href="about-us.html" class="game-btn-mdm text-white">
-                                More Feedback
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="row mt-5 g-4 justify-content-center">
-                    <div class="col-lg-4 col-md-6">
-                        <div class="sh-feedback-wrapper mb-5 mb-lg-0">
-                            <img src="assets/img/client-34.png" alt="client" class="clients-thumb img-fluid rounded-circle"/>
-                            <span class="quote-icon float-end mt-3">
-                  <svg width="36" height="27" viewBox="0 0 36 27" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path opacity="0.4" d="M11.25 4.5L13.5 0H9C4.0275 0 0 6.2775 0 11.25V27H15.75V11.25H6.75C6.75 4.5 11.25 4.5 11.25 4.5ZM27 11.25C27 4.5 31.5 4.5 31.5 4.5L33.75 0H29.25C24.2775 0 20.25 6.2775 20.25 11.25V27H36V11.25H27Z" fill="#DBDBDB"></path>
-                  </svg>
-                </span>
-                            <p class="mt-3 text-off-white">
-                                "Humouror randomised words which look even slightly believable. If
-                                Lorem Ipsum Lorem Ipsum, you need to be sure there isn't anything
-                                embarrassing."
-                            </p>
-                            <hr class="spacer"/>
-                            <div class="sh-feedback-bottom d-flex align-items-center justify-content-between">
-                                <div class="sh-feedback-client">
-                                    <h6 class="mb-0 text-white">Darrell Steward</h6>
-                                    <small class="text-off-white">Co Founder</small>
-                                </div>
-                                <div class="sh-feedback-rating">
-                                    <img src="assets/img/three-star.svg" alt="rating" class="img-fluid"/>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="sh-feedback-wrapper mb-5 mb-lg-0">
-                            <img src="assets/img/client-2.png" alt="client" class="clients-thumb img-fluid rounded-circle"/>
-                            <span class="quote-icon float-end mt-3">
-                  <svg width="36" height="27" viewBox="0 0 36 27" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path opacity="0.4" d="M11.25 4.5L13.5 0H9C4.0275 0 0 6.2775 0 11.25V27H15.75V11.25H6.75C6.75 4.5 11.25 4.5 11.25 4.5ZM27 11.25C27 4.5 31.5 4.5 31.5 4.5L33.75 0H29.25C24.2775 0 20.25 6.2775 20.25 11.25V27H36V11.25H27Z" fill="#DBDBDB"></path>
-                  </svg>
-                </span>
-                            <p class="mt-3 text-off-white">
-                                "Humouror randomised words which look even slightly believable. If
-                                Lorem Ipsum Lorem Ipsum, you need to be sure there isn't anything
-                                embarrassing."
-                            </p>
-                            <hr class="spacer"/>
-                            <div class="sh-feedback-bottom d-flex align-items-center justify-content-between">
-                                <div class="sh-feedback-client">
-                                    <h6 class="mb-0 text-white">Darrell Steward</h6>
-                                    <small class="text-off-white">Co Founder</small>
-                                </div>
-                                <div class="sh-feedback-rating">
-                                    <img src="assets/img/five-star.svg" alt="rating" class="img-fluid"/>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="sh-feedback-wrapper mb-5 mb-lg-0">
-                            <img src="assets/img/client-3.png" alt="client" class="clients-thumb img-fluid rounded-circle"/>
-                            <span class="quote-icon float-end mt-3">
-                  <svg width="36" height="27" viewBox="0 0 36 27" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path opacity="0.4" d="M11.25 4.5L13.5 0H9C4.0275 0 0 6.2775 0 11.25V27H15.75V11.25H6.75C6.75 4.5 11.25 4.5 11.25 4.5ZM27 11.25C27 4.5 31.5 4.5 31.5 4.5L33.75 0H29.25C24.2775 0 20.25 6.2775 20.25 11.25V27H36V11.25H27Z" fill="#DBDBDB"></path>
-                  </svg>
-                </span>
-                            <p class="mt-3 text-off-white">
-                                "Humouror randomised words which look even slightly believable. If
-                                Lorem Ipsum Lorem Ipsum, you need to be sure there isn't anything
-                                embarrassing."
-                            </p>
-                            <hr class="spacer"/>
-                            <div class="sh-feedback-bottom d-flex align-items-center justify-content-between">
-                                <div class="sh-feedback-client">
-                                    <h6 class="mb-0 text-white">Darrell Steward</h6>
-                                    <small class="text-off-white">Co Founder</small>
-                                </div>
-                                <div class="sh-feedback-rating">
-                                    <img src="assets/img/two-star.svg" alt="rating" class="img-fluid"/>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="position-relative pt-80">
-                    <div class="game-cta-bg rounded-top px-4 px-md-0 ps-md-5 pt-80" style={{"background": `url('assets/img/Minecraft.png') no-repeat center
-                  center/cover
-              `}}>
-                        <div class="row">
-                            <div class="col-lg-5 col-md-8">
-                                <div class="game-cta-content">
-                                    <h3 class="text-white mb-3">
-                                        Discover the Best Minecraft Multi-Player Servers.
-                                    </h3>
-                                    <p class="text-off-white">
-                                        Globally foster interoperable infomediaries before turnkey
-                                        content. Holisticly scale client-centric.
-                                    </p>
-                                    <a href="contact-us.html" class="game-btn-mdm mt-4 text-white">Purchase Now</a>
-                                </div>
-                            </div>
-                            <div class="col-lg-7">
-                                <div class="game-img text-lg-end mt-5 mt-lg-0">
-                                    <img src="assets/img/minecrapt.png" class="text-end img-fluid" alt="game"/>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <img src="assets/img/review.png" class="sh-feedback-shape z-5" alt="shape"/>
+const Style8 = ({ data }) => {
+  const swiperRef = useRef(null);
+  useEffect(() => {
+    const swiperInstance = new Swiper(".crypto-testimonial", {
+      slidesPerView: 3,
+      spaceBetween: 30,
+      speed: 1000,
+      autoplay: {
+        delay: 2500,
+      },
+      slidesPerGroup: 1,
+      loop: true,
+      breakpoints: {
+        320: {
+          slidesPerView: 1,
+          spaceBetween: 30,
+        },
+        768: {
+          slidesPerView: 2,
+        },
+        991: {
+          slidesPerView: 3,
+        },
+      },
+    });
+    // Store the Swiper instance in the ref
+    swiperRef.current = swiperInstance;
+
+    // return () => {
+    //   if (swiperRef.current) {
+    //     swiperRef.current.destroy(true, true); // Cleanup on unmount
+    //   }
+    // };
+  }, []);
+
+  return (
+    <>
+      <section class="crypto-testimonial bg-dark-black pt-60 pb-120">
+        <div class="container">
+          <div class="row justify-content-between align-items-center">
+            <div class="col-lg-6 col-md-12">
+              <div class="section-title mb-5">
+                <h2 class="text-white">{data?.title}</h2>
+                <p class="text-white">{data?.description}</p>
+              </div>
             </div>
-        </section>
-  </>)
+            <div class="col-lg-6 col-md-12">
+              <div class="text-left text-lg-end mb-5 mb-lg-0">
+                {data?.button_text && (
+                  <Link
+                    target="_blank"
+                    to={data?.button_url}
+                    class="btn btn-primary rounded-pill"
+                  >
+                    {" "}
+                    {data?.button_text}{" "}
+                  </Link>
+                )}
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="swiper crypto-testimonial ">
+              <div class="swiper-wrapper">
+                {data?.review.map((item, idx) => (
+                  <div class="swiper-slide ">
+                    <div class="crypto-single-testimonial bg-soft-black">
+                      <ul class="review-rate mb-0 list-unstyled list-inline">
+                        {Array(Number(item?.client_rating))
+                          .fill()
+                          .map((_, idx) => (
+                            <li class="list-inline-item">
+                              <i class="fas fa-star text-warning"></i>
+                            </li>
+                          ))}
+                      </ul>
+                      <blockquote class="m-0">
+                        <p class="m-0">{item?.review_description}</p>
+                      </blockquote>
+                      <div class="author-meta d-flex align-items-center">
+                        <div class="pe-3">
+                          <img
+                            src={`${
+                              import.meta.env.VITE_REACT_APP_IMAGE_PATH
+                            }/${item?.image}`}
+                            alt={item?.client_image_alt_tag}
+                          />
+                        </div>
+                        <div>
+                          <h5 class="fw-normal text-white h6 m-0">
+                            {item?.client_name}
+                          </h5>
+                          <span>{item?.designation}</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </>
+  );
 };
 
 export default Style8;

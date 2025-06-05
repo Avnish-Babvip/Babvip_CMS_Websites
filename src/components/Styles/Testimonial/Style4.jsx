@@ -36,7 +36,7 @@ const Style4 = ({ data }) => {
 
   return (
     <>
-      <section class="dg-feedback-section pt-80">
+      <section class="dg-feedback-section pt-40">
         <div class="container">
           <div class="row justify-content-center">
             <div class="col-xl-6">

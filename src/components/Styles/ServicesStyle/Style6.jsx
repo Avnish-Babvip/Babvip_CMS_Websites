@@ -37,7 +37,7 @@ const Style6 = ({ data }) => {
                           item?.step_image
                         }`}
                         alt={item?.step_image_alt_tag}
-                        class="rounded-full p-1 img-fluid"
+                        class="rounded-full p-1 "
                       />
                     </span>
                   </div>

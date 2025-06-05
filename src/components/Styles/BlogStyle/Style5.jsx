@@ -95,7 +95,11 @@ const Style5 = ({ data }) => {
                         <div class="article-info d-flex py-3">
                           <div class="pe-3">
                             <a href="#" class="text-decoration-none">
-                              <i class="fas fa-user pe-2"></i>
+                              <img
+                                src={`${
+                                  import.meta.env.VITE_REACT_APP_IMAGE_PATH
+                                }/${item?.user?.profile_image}`}
+                              />
                               <span class="text-muted">{item?.user?.name}</span>
                             </a>
                           </div>

@@ -63,7 +63,10 @@ const Header = () => {
               )}
             </Link>
             {/* Hamburger */}
-            <div class="position-absolute pr-15 right-0 border-0" role="button">
+            <div
+              class="navbar-toggler position-absolute pr-15 right-0 border-0"
+              role="button"
+            >
               <i
                 class="flaticon-menu "
                 data-bs-toggle="offcanvas"

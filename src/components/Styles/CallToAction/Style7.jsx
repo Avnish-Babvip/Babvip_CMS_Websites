@@ -1,90 +1,43 @@
-import React, { useState } from "react";
-import VideoModal from "../../VideoModal/VideoModal";
+import React from "react";
 import { Link } from "react-router-dom";
 
-const Style7 = () => {
-  const [showVideo, setShowVideo] = useState(false);
-
+const Style7 = ({ data }) => {
   return (
     <>
-      <section class="cta-subscribe bg-dark text-white ptb-120 position-relative overflow-hidden">
+      <div class="ail-cta-area pt-80">
         <div class="container">
-          <div class="row justify-content-center">
-            <div class="col-lg-8 col-md-10">
-              <div class="subscribe-info-wrap text-center position-relative z-2">
-                <div
-                  class="section-heading aos-init aos-animate"
-                  data-aos="fade-up"
-                >
-                  <h4 class="h5 text-warning">Let's Try! Get Free Support</h4>
-                  <h2>Start Your 14-Day Free Trial</h2>
-                  <p>
-                    We can help you to create your dream website for better
-                    business revenue.
-                  </p>
-                </div>
-                <div
-                  class="form-block-banner mw-60 m-auto mt-5 aos-init aos-animate"
-                  data-aos="fade-up"
-                  data-aos-delay="50"
-                >
-                  <Link to="contact-us.html" class="btn btn-primary">
-                    Contact with Us
-                  </Link>
+          <div class="ail-cta-wrapper p-5 rounded-16 position-relative z-1">
+            <div class="row align-items-center">
+              <div class="col-lg-6">
+                <h2 class="ail-title text-black fs-48 fw-600">
+                  {data?.title}{" "}
+                  <span class="ail-highlighted-text">
+                    {data?.highlighted_title}
+                  </span>
+                </h2>
+                {data?.button_text && (
                   <Link
-                    onClick={() =>
-                      "http://www.youtube.com/watch?v=hAP2QF--2Dg" &&
-                      setShowVideo(true)
-                    }
-                    class="text-decoration-none popup-youtube d-inline-flex align-items-center watch-now-btn ms-lg-3 ms-md-3 mt-3 mt-lg-0"
+                    to={data?.button_url}
+                    target="_blank"
+                    class="btn ail-gd-bg dark-bg-hover rounded-5 text-white fs-16 border-0 mt-20"
                   >
-                    {" "}
-                    <i class="fas fa-play"></i> Watch Demo{" "}
+                    {data?.button_text}
                   </Link>
-                </div>
-                <ul
-                  class="nav justify-content-center subscribe-feature-list mt-4 aos-init aos-animate"
-                  data-aos="fade-up"
-                  data-aos-delay="100"
-                >
-                  <li class="nav-item">
-                    <span>
-                      <i class="far fa-check-circle text-primary me-2"></i>Free
-                      14-day trial
-                    </span>
-                  </li>
-                  <li class="nav-item">
-                    <span>
-                      <i class="far fa-check-circle text-primary me-2"></i>No
-                      credit card required
-                    </span>
-                  </li>
-                  <li class="nav-item">
-                    <span>
-                      <i class="far fa-check-circle text-primary me-2"></i>
-                      Support 24/7
-                    </span>
-                  </li>
-                  <li class="nav-item">
-                    <span>
-                      <i class="far fa-check-circle text-primary me-2"></i>
-                      Cancel anytime
-                    </span>
-                  </li>
-                </ul>
+                )}
+              </div>
+              <div class="col-lg-6">
+                <img
+                  src={`${import.meta.env.VITE_REACT_APP_IMAGE_PATH}/${
+                    data?.image
+                  }`}
+                  alt={data?.image_alt_tag}
+                  class="w-100 img-fluid"
+                />
               </div>
             </div>
           </div>
-          <div class="bg-circle rounded-circle circle-shape-3 position-absolute bg-dark-light left-5"></div>
-          <div class="bg-circle rounded-circle circle-shape-1 position-absolute bg-warning right-5"></div>
         </div>
-      </section>
-      {showVideo && (
-        <VideoModal
-          videoUrl={"http://www.youtube.com/watch?v=hAP2QF--2Dg"}
-          setShowVideo={setShowVideo}
-        />
-      )}
+      </div>
     </>
   );
 };

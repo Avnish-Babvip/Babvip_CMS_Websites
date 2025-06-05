@@ -1,8 +1,8 @@
 import Parallax from "parallax-js";
-import { useEffect, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 
-const Style9 = ({ data }) => {
+const Style10 = ({ data }) => {
   const parallaxRef = useRef(null); // Reference for the parallax container
 
   useEffect(() => {
@@ -20,7 +20,7 @@ const Style9 = ({ data }) => {
 
   return (
     <>
-      <section class="feature-section ptb-120  bg-light-subtle">
+      <section class="feature-section ptb-120 bg-dark text-white ">
         <div class="container">
           <div class="row justify-content-center">
             <div class="col-lg-6 col-md-10">
@@ -38,7 +38,7 @@ const Style9 = ({ data }) => {
                     {" "}
                     {idx === 0 && (
                       <div
-                        class="feature-card bg-white shadow-sm highlight-card rounded-custom p-5 "
+                        class="feature-card bg-custom-light promo-border-hover border border-2 border-light text-white shadow-sm highlight-card rounded-custom p-5 "
                         data-aos="fade-up"
                         data-aos-delay="50"
                       >
@@ -67,7 +67,7 @@ const Style9 = ({ data }) => {
                     )}
                     {idx !== 0 && (
                       <div
-                        class="feature-card bg-white shadow-sm rounded-custom p-5 "
+                        class="feature-card bg-custom-light promo-border-hover border border-2 border-light text-white shadow-sm rounded-custom p-5 "
                         data-aos="fade-up"
                         data-aos-delay="50"
                       >
@@ -105,4 +105,4 @@ const Style9 = ({ data }) => {
   );
 };
 
-export default Style9;
+export default Style10;

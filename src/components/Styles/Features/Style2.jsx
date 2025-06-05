@@ -2,7 +2,7 @@ import React from "react";
 
 const Style2 = ({ data }) => {
   return (
-    <section class="feature-section-two bg-light-subtle">
+    <section class="feature-section-two bg-light-subtle pt-40">
       <div class="container">
         <div class="row align-items-center justify-content-center">
           <div class="col-lg-6 col-md-12">

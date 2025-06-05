@@ -8,7 +8,7 @@ const Style20 = ({ data }) => {
       : ""
   }`;
   return (
-    <section class="dg-cta-section ptb-120 position-relative overflow-hidden z-1">
+    <section class="dg-cta-section pt-40 pb-80 position-relative overflow-hidden z-1">
       <img
         src={`${assetRoute}/assets/img/digital-agency/cta-curve-left.png`}
         alt="curve shape"

@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const Style1 = ({ data, teamData }) => {
-  console.log(teamData);
   return (
     <section class="team-section ptb-80">
       <div class="container">

@@ -1,181 +1,107 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
-const Style3 = () => {
+const Style3 = ({ data }) => {
   return (
     <>
-      <section class="feature-tab-section ptb-120 bg-light-subtle">
+      <section class="ptb-120 bg-dark">
         <div class="container">
-          <div class="row justify-content-center align-content-center">
-            <div class="col-md-10 col-lg-6">
-              <div class="section-heading text-center">
-                <h4 class="h5 text-primary">Features</h4>
-                <h2>Powerful Advanced Features</h2>
-                <p>
-                  Dynamically initiate market positioning total linkage with
-                  clicks-and-mortar technology progressively procrastinate
-                  compelling.
-                </p>
+          <div class="row justify-content-center">
+            <div class="col-lg-6 col-md-6">
+              <div class="text-center">
+                <h2>{data?.title}</h2>
+                <p>{data?.description}</p>
+              </div>
+            </div>
+          </div>
+          <div class="row justify-content-center">
+            <div class="col-lg-12">
+              <div class="service-tabs">
+                <ul
+                  class="nav nav-pills d-flex justify-content-center"
+                  id="pills-tab"
+                  role="tablist"
+                >
+                  {data?.tab_data.map((item, idx) => (
+                    <li class="nav-item" role="presentation">
+                      <button
+                        class={`nav-link me-4 ${idx === 0 && "active"}`}
+                        id={`pills-tab-${idx + 1}`}
+                        data-bs-toggle="pill"
+                        data-bs-target={`#pills-${idx + 1}`}
+                        type="button"
+                        role="tab"
+                        aria-controls={`pills-tab-${idx + 1}`}
+                        aria-selected={`${idx === 0 ? true : false}`}
+                      >
+                        <i class="fas fa-desktop me-3"></i>
+                        <span>{item?.tab_main_title}</span>
+                      </button>
+                    </li>
+                  ))}
+                </ul>
               </div>
             </div>
           </div>
           <div class="row">
-            <div class="col-12">
-              <ul
-                class="nav justify-content-center feature-tab-list-2 mb-0"
-                id="nav-tab"
-                role="tablist"
-              >
-                <li class="nav-item" role="presentation">
-                  <a
-                    class="nav-link active"
-                    href="#tab-1"
-                    data-bs-toggle="tab"
-                    data-bs-target="#tab-1"
-                    role="tab"
-                    aria-selected="true"
-                  >
-                    AI &amp; Data Science
-                  </a>
-                </li>
-                <li class="nav-item" role="presentation">
-                  <a
-                    class="nav-link"
-                    href="#tab-2"
-                    data-bs-toggle="tab"
-                    data-bs-target="#tab-2"
-                    role="tab"
-                    aria-selected="false"
-                    tabindex="-1"
-                  >
-                    Automation Power
-                  </a>
-                </li>
-                <li class="nav-item" role="presentation">
-                  <a
-                    class="nav-link"
-                    href="#tab-3"
-                    data-bs-toggle="tab"
-                    data-bs-target="#tab-3"
-                    role="tab"
-                    aria-selected="false"
-                    tabindex="-1"
-                  >
-                    Advanced Technology
-                  </a>
-                </li>
-              </ul>
-              <div class="tab-content" id="nav-tabContent">
+            <div class="tab-content" id="pills-tabContent">
+              {data?.tab_data.map((item, idx) => (
                 <div
-                  class="tab-pane fade pt-60 active show"
-                  id="tab-1"
+                  class={`tab-pane fade ${!idx && "active show"}`}
+                  id={`pills-${idx + 1}`}
                   role="tabpanel"
+                  aria-labelledby={`pills-tab-${idx + 1}`}
                 >
-                  <div class="row justify-content-center align-items-center justify-content-around">
-                    <div class="col-lg-5">
-                      <div class="feature-tab-info">
-                        <h3>AI &amp; Data Science</h3>
-                        <p>
-                          Continually network effective bandwidth whereas
-                          goal-oriented schemas. Intrinsicly incentivize
-                          corporate synergy with accurate task bricks-and-clicks
-                          leadership skills .{" "}
-                        </p>
-                        <p>
-                          Conveniently develop innovative infomediaries for
-                          enabled functionalities. Dynamically coordinate
-                          leading-edge after virtual potentialities drive
-                          multidisciplinary infrastructures.
-                        </p>
-                        <a
-                          href="about-us.html"
-                          class="read-more-link text-decoration-none mt-4 d-block"
-                        >
-                          Know More About Us
-                          <i class="fas fa-arrow-right ms-2"></i>
-                        </a>
+                  <div class="tab-content-wrapper pt-60">
+                    <div class="row align-items-center">
+                      <div class="col-md-6">
+                        <div class="text-center mb-5 mb-lg-0">
+                          <img
+                            src={`${
+                              import.meta.env.VITE_REACT_APP_IMAGE_PATH
+                            }/${item?.tab_image}`}
+                            alt={item?.tab_image_alt_tag}
+                            class="img-fluid"
+                          />
+                        </div>
                       </div>
-                    </div>
-                    <div class="col-lg-5">
-                      <img
-                        src="assets/img/screen/widget-12.png"
-                        alt="feature tab"
-                        class="img-fluid mt-4 mt-lg-0 mt-xl-0"
-                      />
-                    </div>
-                  </div>
-                </div>
-                <div class="tab-pane fade pt-60" id="tab-2" role="tabpanel">
-                  <div class="row justify-content-center align-items-center justify-content-around">
-                    <div class="col-lg-5">
-                      <img
-                        src="assets/img/screen/widget-8.png"
-                        alt="feature tab"
-                        class="img-fluid mb-4 mb-lg-0 mb-xl-0"
-                      />
-                    </div>
-                    <div class="col-lg-5">
-                      <div class="feature-tab-info">
-                        <h3>Automation Power</h3>
-                        <p>
-                          Conveniently develop innovative infomediaries for
-                          enabled functionalities. Dynamically coordinate
-                          leading-edge corporate synergy after virtual
-                          potentialities.
-                        </p>
-                        <p>
-                          Continually network effective bandwidth whereas
-                          goal-oriented schemas. Intrinsicly with accurate
-                          meta-services. Rapidiously parallel task
-                          bricks-and-clicks leadership skills with
-                          revolutionary.{" "}
-                        </p>
-                        <a
-                          href="about-us.html"
-                          class="read-more-link text-decoration-none mt-4 d-block"
-                        >
-                          Know More About Us
-                          <i class="fas fa-arrow-right ms-2"></i>
-                        </a>
+                      <div class="col-md-6">
+                        <div class="tab-right-content">
+                          <h2>
+                            <br />
+                            {item?.tab_title}
+                          </h2>
+                          <p>{item?.tab_description}</p>
+                          <ul class="list-unstyled">
+                            <li>
+                              <i class="fas fa-check text-primary"></i>
+                              <span>{item?.step1_text}</span>
+                            </li>
+                            <li>
+                              <i class="fas fa-check text-primary"></i>
+                              <span>{item?.step2_text}</span>
+                            </li>
+                            <li>
+                              <i class="fas fa-check text-primary"></i>
+                              <span>{item?.step3_text}</span>
+                            </li>
+                          </ul>
+                          {item?.button_text && (
+                            <Link
+                              target="_blank"
+                              to={item?.button_url}
+                              class="text-white link-with-icon text-decoration-none"
+                            >
+                              {item?.button_text}
+                              <i class="fas fa-arrow-right"></i>
+                            </Link>
+                          )}
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
-                <div class="tab-pane fade pt-60" id="tab-3" role="tabpanel">
-                  <div class="row justify-content-center align-items-center justify-content-around">
-                    <div class="col-lg-5">
-                      <div class="feature-tab-info">
-                        <h3>Advanced Technology</h3>
-                        <p>
-                          Intrinsicly incentivize corporate synergy with
-                          accurate meta-services. Rapidiously parallel task
-                          bricks-and-clicks. Leadership skills with
-                          revolutionary convergence conveniently develop.
-                        </p>
-                        <p>
-                          Continually expedite business systems without premier
-                          testing procedures architect principle-centered
-                          e-tailers for progressive maintain open-source
-                          solutions.{" "}
-                        </p>
-                        <a
-                          href="about-us.html"
-                          class="read-more-link text-decoration-none mt-4 d-block"
-                        >
-                          Know More About Us
-                          <i class="fas fa-arrow-right ms-2"></i>
-                        </a>
-                      </div>
-                    </div>
-                    <div class="col-lg-5">
-                      <img
-                        src="assets/img/screen/widget-11.png"
-                        alt="feature tab"
-                        class="img-fluid mt-4 mt-lg-0 mt-xl-0"
-                      />
-                    </div>
-                  </div>
-                </div>
-              </div>
+              ))}
             </div>
           </div>
         </div>

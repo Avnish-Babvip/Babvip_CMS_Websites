@@ -2,7 +2,7 @@ import React from "react";
 
 const Style4 = ({ data }) => {
   return (
-    <section class="work-process ">
+    <section class="work-process pt-40 ">
       <div class="container">
         <div class="row justify-content-center">
           <div class="col-lg-6 col-md-10">
@@ -29,13 +29,13 @@ const Style4 = ({ data }) => {
             <ul class="work-process-list list-unstyled">
               {data?.step_data?.map((item, idx) => (
                 <li class="d-flex align-items-start mb-4">
-                  <div class="process-icon-2 border border-2 rounded-custom bg-white me-4 mt-2">
+                  <div class="process-icon-2 bg-white me-4 mt-2">
                     <img
                       src={`${import.meta.env.VITE_REACT_APP_IMAGE_PATH}/${
                         item?.step_image
                       }`}
                       alt={item?.step_image_icon_alt_tag}
-                      class="img-fluid p-0"
+                      class=""
                     />
                   </div>
                   <div class="icon-content">

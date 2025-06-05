@@ -50,7 +50,7 @@ const Style21 = ({ data }) => {
   }, []);
   return (
     <>
-      <section class="dg-team-section pb-100 position-relative z-1 overflow-hidden ptb-120">
+      <section class="dg-team-section  position-relative z-1 overflow-hidden ptb-120">
         <img
           src={`${assetRoute}/assets/img/digital-agency/team-curve-left.png`}
           alt="team curve"
