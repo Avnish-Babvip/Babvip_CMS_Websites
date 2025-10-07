@@ -1,21 +1,23 @@
 import { configureStore } from "@reduxjs/toolkit";
-import {combineReducers} from "redux";
+import { combineReducers } from "redux";
 import { encryptTransform } from "redux-persist-transform-encrypt";
-import {persistReducer} from "redux-persist";
+import { persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 import headMenu from "./slices/headMenu";
 import footerMenu from "./slices/footerMenu";
 import siteSettings from "./slices/siteSettings";
 import blog from "./slices/blog";
 import helpCenter from "./slices/helpCenter";
-import team from "./slices/team"
-import submission from "./slices/submission"
-import dynamicRootPage from "./slices/dynamicRootPage"
-import portfolio from "./slices/portfolio"
-import home from "./slices/home"
+import team from "./slices/team";
+import submission from "./slices/submission";
+import dynamicRootPage from "./slices/dynamicRootPage";
+import portfolio from "./slices/portfolio";
+import home from "./slices/home";
+import privacy from "./slices/privacy";
+import intern from "./slices/intern";
 
 const rootReducer = combineReducers({
-  headMenu ,
+  headMenu,
   footerMenu,
   siteSettings,
   dynamicRootPage,
@@ -24,12 +26,13 @@ const rootReducer = combineReducers({
   team,
   submission,
   portfolio,
-  home
-  });
+  home,
+  privacy,
+  intern,
+});
 
-  
- // Redux-persist configuration
- const persistConfig = {
+// Redux-persist configuration
+const persistConfig = {
   key: "BABVIPSOFTWARES",
   version: 1,
   storage,
@@ -48,12 +51,12 @@ const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 // Configure and create the Redux store
 const store = configureStore({
-    reducer: persistedReducer,
-    devTools: true,
-    middleware: (getDefaultMiddleware) =>
-      getDefaultMiddleware({
-        serializableCheck: false,
-      }),
-  });
+  reducer: persistedReducer,
+  devTools: true,
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: false,
+    }),
+});
 
-  export default store;
+export default store;

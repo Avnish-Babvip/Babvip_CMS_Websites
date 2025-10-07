@@ -100,7 +100,7 @@ const Header = () => {
                           {item?.title}
                         </Link>
                         <div
-                          className={`dropdown-menu border-0 rounded-custom shadow py-0 homepage-list-wrapper ${
+                          className={` dropdown-menu border-0 rounded-custom shadow py-0  ${
                             activeDropdown === idx ? "show" : ""
                           }`}
                         >

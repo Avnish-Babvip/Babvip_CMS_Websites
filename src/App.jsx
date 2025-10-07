@@ -21,7 +21,7 @@ function App() {
     dispatch(getAllHeadMenu());
     dispatch(getAllFooterMenu());
     dispatch(getAllSiteSettings());
-  }, [dispatch]);
+  }, []);
 
   useEffect(() => {
     if (siteSetting?.setting_data?.site_favicon) {
@@ -42,6 +42,7 @@ function App() {
       // Inject html into head
       document.head.innerHTML += siteSetting?.setting_data?.header_script;
     }
+    console.log(siteSetting?.setting_data?.header_script);
   }, [siteSetting]);
 
   useEffect(() => {

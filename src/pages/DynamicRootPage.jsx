@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { Helmet } from "react-helmet-async";
 import { useDispatch, useSelector } from "react-redux";
 import { getRouteDataBySlug } from "../features/actions/dynamicRootPage";
@@ -82,7 +82,27 @@ const DynamicRootPage = () => {
     } else {
       dispatch(getHomeData());
     }
-  }, [slug, dispatch]);
+  }, [slug]);
+
+  // useEffect(() => {
+  //   dispatch(getAllSiteSettings());
+  // }, [slug]);
+
+  useEffect(() => {
+    const canonicalUrl = window.location.href.split("?")[0]; // remove query params if you want
+    let link = document.querySelector("link[rel='canonical']");
+
+    if (link) {
+      // update existing
+      link.setAttribute("href", canonicalUrl);
+    } else {
+      // create new
+      link = document.createElement("link");
+      link.setAttribute("rel", "canonical");
+      link.setAttribute("href", canonicalUrl);
+      document.head.appendChild(link);
+    }
+  }, [slug]);
 
   useEffect(() => {
     let bodyScriptWrapper;
@@ -109,10 +129,32 @@ const DynamicRootPage = () => {
           name="description"
           content={metaDescription || "Babvip Description"}
         />
+        {/* ✅ Open Graph Tags */}
+        <meta property="og:title" content={metaTitle || "Babvip"} />
+        <meta
+          property="og:description"
+          content={metaDescription || "Babvip Description"}
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={window.location.href} />
+        <meta property="og:site_name" content="Babvip" />
+        <meta
+          property="og:image"
+          content={
+            slug
+              ? `${import.meta.env.VITE_REACT_APP_IMAGE_PATH}/${
+                  page_data?.page_data?.og_graph_image
+                }`
+              : `${import.meta.env.VITE_REACT_APP_IMAGE_PATH}/${
+                  homeData?.page_data?.page_data?.og_graph_image
+                }`
+          }
+        />
         {/* ✅ Inject head script safely */}
         {pageHeadScripts && (
           <script dangerouslySetInnerHTML={{ __html: pageHeadScripts }} />
         )}
+        \
       </Helmet>
 
       {isLoading ? (
@@ -137,9 +179,11 @@ const DynamicRootPage = () => {
           );
         })
       ) : (
-        <p className="text-center text-primary fw-bold fs-5 mt-5 mx-5">
-          Sorry, no content available on this page right now.
-        </p>
+        <div className="min-vh-100 d-flex align-items-center justify-content-center">
+          <p className="text-center text-primary fw-bold  fs-5  mx-5">
+            Sorry, no content available on this page right now.
+          </p>
+        </div>
       )}
     </>
   );

@@ -5,6 +5,7 @@ import DefaultLayout from "../layout/DefaultLayout/DefaultLayout";
 import Maintenance from "../pages/Maintenance";
 import DynamicRootPage from "../pages/DynamicRootPage";
 import Loader from "../components/Loader/Loader";
+import DownloadCertificate from "../pages/DownloadCertificate";
 
 // Lazy Loading 😴
 const Blog = lazy(() => import("../pages/Blog"));
@@ -29,6 +30,10 @@ export const appRouter = createBrowserRouter([
       {
         path: "/:slug",
         element: <DynamicRootPage />,
+      },
+      {
+        path: "/download/certificate",
+        element: <DownloadCertificate />,
       },
       {
         path: "/blog/:slug",
