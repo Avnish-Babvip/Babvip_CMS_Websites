@@ -16,7 +16,7 @@ const getIpAddress = async () => {
 };
 
 export const sendInternInfo = createAsyncThunk(
-  "//site/interninfo",
+  "/site/interninfo",
   async (payload, { rejectWithValue }) => {
     try {
       const ipAddress = await getIpAddress();
